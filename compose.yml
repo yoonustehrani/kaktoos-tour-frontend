@@ -1,0 +1,17 @@
+services:
+  app:
+    image: node:22
+    volumes:
+      - .:/app:cached
+    working_dir: /app
+    command: sleep infinity
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+    stop_grace_period: 3s
+
+networks:
+  app-network:
