@@ -1,3 +1,4 @@
+/* @import "tailwindcss"; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +6,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-antiFlashWhite: #f0f3f867;
+  /* --color-red-500: theme('colors.red.500'); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,8 +15,45 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+  
 }
 
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url("/fonts/Vazirmatn[wght].woff2") format('woff2 supports variations'),
+       url("/fonts/Vazirmatn[wght].woff2") format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  
+}
+
+html, body {
+  @apply w-full h-full m-0 p-0 relative;
+}
+
+body {
+  @apply font-vazir dark:text-antiFlashWhite;
+}
+
+
+nav ul a {
+  @apply duration-300 px-3 py-1
+  text-emerald-900 hover:text-appleGreen
+  dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic;
+}
+
+p {
+  @apply leading-relaxed !important;
+}
+
+.underlined {
+  @apply underline underline-offset-[10px];
+}
+
+em.underlined {
+  @apply not-italic;
+}
 /* body {
   color: var(--foreground);
   background: var(--background);
