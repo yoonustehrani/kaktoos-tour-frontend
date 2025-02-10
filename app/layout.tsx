@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
 	title: {
@@ -19,6 +20,7 @@ export default function RootLayout({
 				className={`subpixel-antialiased`}
 			>
 				{children}
+				<SpeedInsights />
 			</body>
 		</html>
 	);
