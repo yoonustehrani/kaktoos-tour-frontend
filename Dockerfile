@@ -2,12 +2,14 @@ FROM node:22-bookworm
 
 ENV NODE_ENV=development
 
+RUN apt-get update && apt-get upgrade -y
+
 USER node
 
 RUN mkdir -p ~/.npm-global && npm config set prefix '~/.npm-global' && \
     echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 
-RUN /bin/bash -c 'source ~/.bashrc &&  npm install -g pnpm'
+RUN npm install -g pnpm --verbose
 
 EXPOSE 3000
 
