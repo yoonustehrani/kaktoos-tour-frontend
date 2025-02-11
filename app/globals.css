@@ -4,59 +4,68 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-antiFlashWhite: #f0f3f867;
-  /* --color-red-500: theme('colors.red.500'); */
+	--background: #ffffff;
+	--foreground: #171717;
+	--color-antiFlashWhite: #f0f3f867;
+	/* --color-red-500: theme('colors.red.500'); */
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-  
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+
 }
 
 @font-face {
-  font-family: 'Vazirmatn';
-  src: url("/fonts/Vazirmatn[wght].woff2") format('woff2 supports variations'),
-       url("/fonts/Vazirmatn[wght].woff2") format('woff2-variations');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  
+	font-family: 'Vazirmatn';
+	src: url("/fonts/Vazirmatn[wght].woff2") format('woff2 supports variations'),
+		url("/fonts/Vazirmatn[wght].woff2") format('woff2-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+
 }
 
-html, body {
-  @apply w-full h-full m-0 p-0 relative;
+html,
+body {
+	@apply w-full h-full m-0 p-0 relative;
 }
 
 body {
-  @apply font-vazir dark:text-antiFlashWhite;
+	@apply font-vazir dark:text-antiFlashWhite;
 }
 
 
 nav ul a {
-  @apply duration-300 px-3 py-1
-  text-emerald-900 hover:text-appleGreen
-  dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic;
+	@apply duration-300 px-3 py-1 text-emerald-900 hover:text-appleGreen dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic;
 }
 
 p {
-  @apply leading-relaxed !important;
+	@apply leading-relaxed !important;
 }
 
 .underlined {
-  @apply underline underline-offset-[10px];
+	@apply underline underline-offset-[10px];
 }
 
 em.underlined {
-  @apply not-italic;
+	@apply not-italic;
 }
 
 span.fi {
-  @apply inline-flex items-center justify-center;
+	@apply inline-flex items-center justify-center;
+}
+
+.hexagon {
+	@apply before:rotate-[60deg] after:-rotate-[60deg];
+	/* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
+	&:before,
+	&:after {
+		content: '';
+		@apply absolute bg-inherit h-full w-full top-0 left-0 inline-block;
+	}
 }
 /* body {
   color: var(--foreground);
