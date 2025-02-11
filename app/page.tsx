@@ -2,6 +2,7 @@ import Cactus from "./ui/vectors/Cactus";
 import SandDune from "./ui/vectors/SandDune";
 import Logo from "./ui/nav/Logo";
 import Link from "next/link";
+import SearchTourForm from "./ui/forms/SearchTourForm";
 
 export default function Home() {
 	return (
@@ -28,7 +29,7 @@ export default function Home() {
 						</li>
 					</ul>
 				</nav>
-				<section className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-3 xl:gap-20 w-full px-3 xl:px-6 pt-3 pb-8">
+				<section className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-3 xl:gap-20 w-full px-3 xl:px-6 pt-3 pb-6 mb-24">
 					<div className="md:w-1/2 bg-transparent px-3 xl:px-6 flex flex-col gap-4 text-gray-800 dark:text-gray-300">
 						<h1 className="text-5xl mb-20 w-full text-center md:w-fit font-bold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور" className="-mr-28 mt-12 absolute inline-block">تـــور</span></h1>
 						{/* <p className="text-xl text-justify">برگزار کننده تور های داخلی و خارجی از مبدا مشهد</p>
@@ -58,7 +59,9 @@ export default function Home() {
 				</section>
 			</header>
 			<main className="w-full h-fit">
-
+				<section className="w-full h-96 dark:bg-gray-900 flex justify-center">
+					<SearchTourForm />
+				</section>
 			</main>
 		</>
 	);
