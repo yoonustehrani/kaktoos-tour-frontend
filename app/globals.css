@@ -1,4 +1,4 @@
-/* @import "tailwindcss"; */
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,6 +53,10 @@ p {
 
 em.underlined {
   @apply not-italic;
+}
+
+span.fi {
+  @apply inline-flex items-center justify-center;
 }
 /* body {
   color: var(--foreground);
