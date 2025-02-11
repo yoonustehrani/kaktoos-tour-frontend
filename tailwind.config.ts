@@ -52,6 +52,9 @@ export default {
 			},
 			fontFamily: {
 				vazir: 'Vazirmatn'
+			},
+			backgroundImage: {
+				'tour-colored': 'url("/plane.svg")'
 			}
 		},
 	},
