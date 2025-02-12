@@ -26,9 +26,8 @@ const origins: ORIGIN[] = [
 ]
 
 export default function SearchTourForm() {
-    const [formActive, setFormActive] = useState(true);
+    const [formActive, setFormActive] = useState(false);
     const [selectedOrigin, setOrigin] = useState(0);
-    console.log(selectedOrigin);
     
     const modal = useRef<HTMLDialogElement>(null);
 
