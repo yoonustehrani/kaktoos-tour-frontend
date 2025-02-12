@@ -38,14 +38,14 @@ export default function Home() {
 						<p className="text-xl text-justify">با سال‌ها تجربه در صنعت گردشگری، بهترین و متنوع‌ترین تورها را به مقاصد محبوب داخلی و خارجی ارائه می‌دهیم. تورهای کاکتوس با برنامه‌ریزی حرفه‌ای، <em className="underlined">خدمات باکیفیت و قیمت‌های رقابتی</em> <span aria-label="Money bag">💰</span>، سفری به‌یادماندنی را برای شما رقم می‌زند.</p>
 						<p className="text-xl text-justify">برای اطلاع از آخرین تورها و تخفیف‌های ویژه، از گزینه های زیر استفاده کنید:</p>
 						<div className="flex flex-col items-center sm:flex-row text-lg gap-4">
-							<button className="bg-butterscotch border-raw-umber dark:bg-darkBlue-marian-light dark:border-darkBlue-marian-dark border-b-4 border-r-4 px-3 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
+							<Link href={'/search'} className="bg-butterscotch border-raw-umber dark:bg-darkBlue-marian-light dark:border-darkBlue-marian-dark border-b-4 border-r-4 px-3 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
 								<span className="fi fi-rs-search w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
 								جستجوی تور
-							</button>
-							<button className="bg-appleGreen dark:bg-avocado border-dark-moss-green border-b-4 border-r-4 px-2 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
+							</Link>
+							<Link href={'/contact'} className="bg-appleGreen dark:bg-avocado border-dark-moss-green border-b-4 border-r-4 px-2 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
 								<span className="fi fi-rs-phone-flip w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
 								تماس با کاکتوس
-							</button>
+							</Link>
 						</div>
 					</div>
 					<div className="w-full md:w-1/2 h-64 sm:h-72 md:h-[30rem] flex items-end justify-center overflow-hidden">
