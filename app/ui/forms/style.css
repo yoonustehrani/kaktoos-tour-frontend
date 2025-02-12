@@ -130,3 +130,16 @@
 		transform: translateY(-100%);
 	}
 }
+
+.select-item {
+	@apply cursor-pointer opacity-60 hover:opacity-100 hover:dark:bg-gray-800 rounded-md pr-2 pl-4 py-2 flex items-center justify-between gap-4 duration-300;
+	&.active {
+		@apply opacity-100 dark:bg-gray-800;
+	}
+	.input.active, &:hover .input {
+		@apply bg-sky-500 ring-sky-800;
+	}
+	.input {
+		@apply duration-300 ring-gray-100 bg-darkBlue-oxford h-3 aspect-square rounded-full ring-2 ring-offset-darkBlue-oxford ring-offset-4;
+	}
+}
