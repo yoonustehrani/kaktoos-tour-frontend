@@ -11,6 +11,8 @@ RUN mkdir -p ~/.npm-global && npm config set prefix '~/.npm-global' && \
 
 RUN npm install -g pnpm --verbose
 
+RUN git config --global core.editor "code --wait"
+
 EXPOSE 3000
 
 CMD ["sleep", "infinity"]
