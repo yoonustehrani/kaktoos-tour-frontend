@@ -59,7 +59,7 @@ export default function Home() {
 				</section>
 			</header>
 			<main className="w-full h-fit">
-				<section className="w-full h-96 dark:bg-gray-900 flex justify-center">
+				<section className="w-full h-96 dark:bg-gray-900 pt-12 md:pt-0 flex justify-center">
 					<SearchTourForm />
 				</section>
 			</main>

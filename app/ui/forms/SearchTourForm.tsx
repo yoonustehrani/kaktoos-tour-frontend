@@ -28,8 +28,8 @@ export default function SearchTourForm() {
                         onClick={handleButtonClick} 
                         labelClassName='bg-darkBlue-marian-dark' 
                         label={formActive ? 'جستجوی تور' : 'شروع جستجو' }
-                        iconClass='bg-lightBlue-yin fi fi-rs-search text-4xl' 
-                        size={formActive ? 1 : 2} 
+                        iconClass='bg-lightBlue-yin fi fi-rs-search' 
+                        size={formActive ? 0 : 2} 
                         className='shadow-md bg-darkBlue-marian-light transition-discrete duration-[1s]' 
                     />
                 </div>
