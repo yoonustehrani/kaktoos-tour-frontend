@@ -6,11 +6,10 @@ import '@/app/ui/forms/style.css';
 import OriginField from './OriginField';
 import { Formik } from 'formik';
 import DestinationsField from './DestinationsField';
+import DatesField from './DatesField';
 
 export default function SearchTourForm() {
     const [formActive, setFormActive] = useState(false);
-
-    const calendarModalRef = useRef<HTMLDialogElement>(null)
 
     function handleButtonClick(e: MouseEvent<HTMLDivElement>) {
         !formActive && setFormActive(true);
@@ -42,27 +41,21 @@ export default function SearchTourForm() {
                     <Formik
                         initialValues={{
                             origin: null,
-                            destinations: []
+                            destinations: [],
+                            start_date: null,
+                            end_date: null
                         }}
                         onSubmit={() => {
 
                         }}
                     >
-                        <div className='grow w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-4 mt-6 md:mt-3'>
-                            <OriginField />
-                            <DestinationsField />
-                            {/* <button className='flex items-center gap-2' onClick={() => {
-                                calendarModalRef.current?.showModal()
-                            }}>
-                                <i className="fi fi-rs-marker size-5"></i>
-                                انتخاب تاریخ
-                            </button>
-                            <Modal ref={calendarModalRef}>
-                                <Calendar handlePick={(date) => {
-                                    console.log(date);
-                                }} />
-                            </Modal> */}
-                        </div>
+                        {({setFieldValue}) => (
+                            <div className='grow w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-4 mt-6 md:mt-3'>
+                                <OriginField />
+                                <DestinationsField />
+                                <DatesField setFieldValue={setFieldValue}/>
+                            </div>
+                        )}
                     </Formik>
                 )}
             </div>

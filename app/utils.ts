@@ -57,3 +57,8 @@ export function farsiNumber(number: number | string): string {
     const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
     return number.toString().replace(/\d/g, (digit) => persianDigits[Number(digit)]);
 }
+
+export function convertToJalali(date: string)
+{
+    return farsiNumber(moment(date, 'YYYY-MM-DD').format('jYYYY/jMM/jDD'))
+}
