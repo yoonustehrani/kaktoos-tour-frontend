@@ -5,6 +5,7 @@ import Hexagon from '../../Hexagon';
 import '@/app/ui/forms/style.css';
 import OriginField from './OriginField';
 import { Formik } from 'formik';
+import DestinationsField from './DestinationsField';
 
 export default function SearchTourForm() {
     const [formActive, setFormActive] = useState(false);
@@ -40,14 +41,16 @@ export default function SearchTourForm() {
                 {formActive && (
                     <Formik
                         initialValues={{
-                            origin: null
+                            origin: null,
+                            destinations: []
                         }}
                         onSubmit={() => {
 
                         }}
                     >
-                        <div className='grow w-full grid grid-cols-2 xl:grid-cols-3 px-4'>
+                        <div className='grow w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-4'>
                             <OriginField />
+                            <DestinationsField />
                             {/* <button className='flex items-center gap-2' onClick={() => {
                                 calendarModalRef.current?.showModal()
                             }}>
