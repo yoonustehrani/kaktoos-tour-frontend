@@ -2,7 +2,7 @@ import Cactus from "./ui/vectors/Cactus";
 import SandDune from "./ui/vectors/SandDune";
 import Logo from "./ui/nav/Logo";
 import Link from "next/link";
-import SearchTourForm from "./ui/forms/SearchTourForm";
+import SearchTourForm from "./ui/forms/SearchTourForm/SearchTourForm";
 
 export default function Home() {
 	return (
@@ -51,7 +51,7 @@ export default function Home() {
 					<div className="w-full md:w-1/2 h-64 sm:h-72 md:h-[30rem] flex items-end justify-center overflow-hidden">
 						<div className="w-full h-fit relative flex justify-center items-end">
 							<div className="w-fit absolute mb-[10%]">
-								<Cactus className="h-52 md:h-96"/>
+								<Cactus className="h-52 md:h-96" />
 							</div>
 							<SandDune />
 						</div>
