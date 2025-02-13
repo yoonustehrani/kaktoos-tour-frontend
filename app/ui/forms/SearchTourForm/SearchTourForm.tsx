@@ -17,7 +17,7 @@ export default function SearchTourForm() {
     }
 
     return (
-        <div className="bg-black/20 backdrop-blur-lg shadow-lg rounded-md w-4/5 h-96 -mt-16">
+        <div className="bg-black/20 backdrop-blur-lg shadow-lg rounded-md w-4/5 min-h-96 h-fit -mt-16">
             <div id='search-tour-form' className='w-full h-full relative'>
                 <span></span>
                 <span></span>
@@ -48,7 +48,7 @@ export default function SearchTourForm() {
 
                         }}
                     >
-                        <div className='grow w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-4'>
+                        <div className='grow w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 px-4'>
                             <OriginField />
                             <DestinationsField />
                             {/* <button className='flex items-center gap-2' onClick={() => {
