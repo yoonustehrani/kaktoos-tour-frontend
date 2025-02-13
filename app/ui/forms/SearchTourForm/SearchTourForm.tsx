@@ -1,16 +1,14 @@
 'use client';
 
 import { MouseEvent, useRef, useState } from 'react';
-import Hexagon from '../Hexagon';
-import './style.css';
-import Calendar from './Calendar';
-import OriginSelectionModal from './OriginSelectionModal';
-import Modal from '../Modal';
+import Hexagon from '../../Hexagon';
+import '@/app/ui/forms/style.css';
+import OriginField from './OriginField';
+import { Formik } from 'formik';
 
 export default function SearchTourForm() {
     const [formActive, setFormActive] = useState(false);
-    
-    const originModalRef = useRef<HTMLDialogElement>(null);
+
     const calendarModalRef = useRef<HTMLDialogElement>(null)
 
     function handleButtonClick(e: MouseEvent<HTMLDivElement>) {
@@ -40,26 +38,29 @@ export default function SearchTourForm() {
                     />
                 </div>
                 {formActive && (
-                    <div className='grow w-full'>
-                        <button className='flex items-center gap-2' onClick={() => {
-                            originModalRef.current?.showModal()
-                        }}>
-                            <i className="fi fi-rs-marker size-5"></i>
-                            انتخاب مبدا
-                        </button>
-                        <OriginSelectionModal ref={originModalRef}/>
-                        <button className='flex items-center gap-2' onClick={() => {
-                            calendarModalRef.current?.showModal()
-                        }}>
-                            <i className="fi fi-rs-marker size-5"></i>
-                            انتخاب تاریخ
-                        </button>
-                        <Modal ref={calendarModalRef}>
-                            <Calendar handlePick={(date) => {
-                                console.log(date);
-                            }}/>
-                        </Modal>
-                    </div>
+                    <Formik
+                        initialValues={{
+                            origin: null
+                        }}
+                        onSubmit={() => {
+
+                        }}
+                    >
+                        <div className='grow w-full grid grid-cols-2 xl:grid-cols-3 px-4'>
+                            <OriginField />
+                            {/* <button className='flex items-center gap-2' onClick={() => {
+                                calendarModalRef.current?.showModal()
+                            }}>
+                                <i className="fi fi-rs-marker size-5"></i>
+                                انتخاب تاریخ
+                            </button>
+                            <Modal ref={calendarModalRef}>
+                                <Calendar handlePick={(date) => {
+                                    console.log(date);
+                                }} />
+                            </Modal> */}
+                        </div>
+                    </Formik>
                 )}
             </div>
         </div>
