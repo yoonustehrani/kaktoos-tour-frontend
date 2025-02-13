@@ -13,6 +13,14 @@ RUN npm install -g pnpm --verbose
 
 RUN git config --global core.editor "code --wait"
 
+USER root
+
+RUN apt-get install -y tzdata && \
+    ln -fs /usr/share/zoneinfo/Asia/Tehran /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
+
+USER node
+
 EXPOSE 3000
 
 CMD ["sleep", "infinity"]
