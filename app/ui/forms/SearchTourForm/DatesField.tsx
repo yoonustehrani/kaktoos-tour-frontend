@@ -3,6 +3,7 @@ import Calendar from "../Calendar/Calendar"
 import Modal from "../../Modal"
 import { convertToJalali, getJMoment } from "@/app/utils"
 import { useField } from "formik"
+import FieldButton from "./FieldButton"
 
 // type DATE_ARRAY = [number, number, number]
 
@@ -54,15 +55,11 @@ export default function DatesField({
 
     return (
         <div>
-            <button className='flex items-center dark:bg-gray-900 rounded-t-lg overflow-hidden shadow-md' onClick={() => {
-                modalRef.current?.showModal()
-            }}>
-                <span className="h-full px-3 py-2 inline-flex items-center justify-center gap-2">
-                    <i className="fi fi-rs-calendar h-full pt-1"></i>
-                    <span>{`انتخاب تاریخ`}</span>
-                </span>
-            </button>
-            <div className={`w-full max-w-xs bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
+            <FieldButton onClick={() => modalRef.current?.showModal()}>
+                <i className="fi fi-rs-calendar h-full pt-1"></i>
+                <span>{`انتخاب تاریخ`}</span>
+            </FieldButton>
+            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
                 {noDatePicked ? (
                     <p className="text-justify">روی انتخاب تاریخ کلیک کنید تا تاریخ رفت یا برگشت خود را مشخص کنید.</p>
                 ): (

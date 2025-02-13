@@ -4,6 +4,7 @@ import { ID, ORIGIN } from "@/app/ui/types"
 import SearchInput from "./SearchInput"
 import Image from "next/image";
 import { useField } from "formik";
+import FieldButton from "./FieldButton";
 
 const origins: ORIGIN[] = [
     {
@@ -43,15 +44,11 @@ export default function OriginField() {
     }
     return (
         <div>
-            <button className='flex items-center dark:bg-gray-900 rounded-t-lg overflow-hidden shadow-md' onClick={() => {
-                modalRef.current?.showModal()
-            }}>
-                <span className="h-full px-3 py-2 inline-flex items-center justify-center gap-2">
-                    <i className="fi fi-rs-marker h-full pt-1"></i>
-                    <span>{`انتخاب مبدا`}</span>
-                </span>
-            </button>
-            <div className={`w-full max-w-xs bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
+            <FieldButton onClick={() => modalRef.current?.showModal()}>
+                <i className="fi fi-rs-marker h-full pt-1"></i>
+                <span>{`انتخاب مبدا`}</span>
+            </FieldButton>
+            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
                 {!state && (
                     <p className="text-justify">روی انتخاب مبدا کلیک کنید تا شهر مبدا سفر خود را مشخص کنید.</p>
                 )}
@@ -62,7 +59,7 @@ export default function OriginField() {
                             <h5 className="font-bold text-base">{state.name_fa}</h5>
                             <h6 className="text-xs">{state.name}</h6>
                         </div>
-                        <button onClick={() => setState(undefined)} className="bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
+                        <button onClick={() => setState(undefined)} className="bg-gray-300 dark:text-white dark:bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
                             <i className="block fi fi-rs-cross text-xs size-3"></i>
                         </button>
                     </>
@@ -86,7 +83,7 @@ export default function OriginField() {
                                     <span>{origin.name_fa} - {origin.name}</span>
                                 </div>
                                 <div className='flex items-center gap-4'>
-                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-sky-800 text-xs'>{origin.tours_from_count} تور</span>
+                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{origin.tours_from_count} تور</span>
                                     <span className={`input ${isChecked(origin.id) ? 'active' : ''}`}></span>
                                 </div>
                             </li>

@@ -4,6 +4,7 @@ import { DESTINATION, DESTINATIONS_GROUPPED, ID } from "@/app/ui/types"
 import SearchInput from "./SearchInput"
 import Image from "next/image";
 import { useField } from "formik";
+import FieldButton from "./FieldButton";
 
 const destinationGroups: DESTINATIONS_GROUPPED = {
     "DE": [
@@ -126,26 +127,22 @@ export default function DestinationsField() {
     }
     return (
         <div>
-            <button className='flex items-center dark:bg-gray-900 rounded-t-lg overflow-hidden shadow-md' onClick={() => {
-                modalRef.current?.showModal()
-            }}>
-                <span className="h-full px-3 py-2 inline-flex items-center justify-center gap-2">
-                    <i className="fi fi-rs-route h-full pt-1"></i>
-                    <span>{state.length > 0 ? 'افزودن مقصد' : 'انتخاب مقصد'}</span>
-                </span>
-            </button>
-            <div className={`w-full max-w-xs bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
+            <FieldButton onClick={() => modalRef.current?.showModal()}>
+                <i className="fi fi-rs-route h-full pt-1"></i>
+                <span>{state.length > 0 ? 'افزودن مقصد' : 'انتخاب مقصد'}</span>
+            </FieldButton>
+            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
                 {state.length === 0 && (
                     <p className="text-justify">با کلیک روی انتخاب مقصد می توانید مقاصد سفر خود را مشخص کنید.</p>
                 )}
                 {state.map(dest => (
-                    <div key={dest.id} className={`w-full bg-gray-700 h-12 px-3 py-1 flex items-center gap-3 rounded-md`}>
+                    <div key={dest.id} className={`w-full bg-gray-200 dark:bg-gray-700 h-12 px-3 py-1 flex items-center gap-3 rounded-md`}>
                         <Image className="rounded-full" src={`/flags/1x1/${dest?.country_code.toLowerCase()}.svg`} height={30} width={30} alt="Country Flag" />
                         <div className="flex flex-col gap-1 grow">
                             <h5 className="font-bold text-sm">{dest.name_fa}</h5>
                             <h6 className="text-xs">{dest.name}</h6>
                         </div>
-                        <button onClick={() => removeDesination(dest.id)} className="bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
+                        <button onClick={() => removeDesination(dest.id)} className="bg-gray-300 dark:text-white dark:bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
                             <i className="block fi fi-rs-cross text-xs size-3"></i>
                         </button>
                     </div>
@@ -179,7 +176,7 @@ export default function DestinationsField() {
                                                     <span>{dest.name_fa} - {dest.name}</span>
                                                 </div>
                                                 <div className='flex items-center gap-4'>
-                                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-sky-800 text-xs'>{dest.tours_count} تور</span>
+                                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{dest.tours_count} تور</span>
                                                     <input type="checkbox" onChange={() => {}} checked={isChecked(dest.id)} />
                                                 </div>
                                             </li>
