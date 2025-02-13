@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/moment-jalaali": "^0.7.9",
+    "moment": "^2.30.1",
+    "moment-jalaali": "^0.10.4",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
