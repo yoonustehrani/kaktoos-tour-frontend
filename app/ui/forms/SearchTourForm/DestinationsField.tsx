@@ -1,77 +1,12 @@
-import { Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { ChangeEvent, Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import Modal from "@/app/ui/Modal"
-import { DESTINATION, DESTINATIONS_GROUPPED, ID } from "@/app/utils/types"
+import { DESTINATION, DESTINATIONS_GROUPPED, HttpError, ID } from "@/app/utils/types"
 import SearchInput from "./SearchInput"
 import Image from "next/image";
 import { useField } from "formik";
 import FieldButton from "./FieldButton";
-
-const destinationGroups: DESTINATIONS_GROUPPED = {
-    "DE": [
-        {
-            "id": 3,
-            "name": "Cologne",
-            "name_fa": "کلن",
-            "country_code": "DE",
-            "tours_count": 3,
-            "country": {
-                "code": "DE",
-                "name": "Germany",
-                "name_fa": "آلمان"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Berlin",
-            "name_fa": "برلین",
-            "country_code": "DE",
-            "tours_count": 3,
-            "country": {
-                "code": "DE",
-                "name": "Germany",
-                "name_fa": "آلمان"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Hamburg",
-            "name_fa": "هامبورگ",
-            "country_code": "DE",
-            "tours_count": 3,
-            "country": {
-                "code": "DE",
-                "name": "Germany",
-                "name_fa": "آلمان"
-            }
-        }
-    ],
-    "FR": [
-        {
-            "id": 6,
-            "name": "Paris",
-            "name_fa": "پاریس",
-            "country_code": "FR",
-            "tours_count": 3,
-            "country": {
-                "code": "FR",
-                "name": "France",
-                "name_fa": "فرانسه"
-            }
-        },
-        {
-            "id": 7,
-            "name": "Nice",
-            "name_fa": "نیس",
-            "country_code": "FR",
-            "tours_count": 3,
-            "country": {
-                "code": "FR",
-                "name": "France",
-                "name_fa": "فرانسه"
-            }
-        }
-    ]
-}
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { getDestinations } from "@/app/utils/queries";
 
 type Action =
     | { type: 'ADD_DESTINATION'; payload: DESTINATION }
@@ -125,6 +60,20 @@ export default function DestinationsField() {
             ? removeDesination(destination.id)
             : addDesination(destination)
     }
+
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    function handleSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
+        setSearchTerm(event.currentTarget.value)
+    }
+
+    const {data, isPending, isError, error} = useQuery<DESTINATIONS_GROUPPED, HttpError>({
+        queryKey: ['destinations', {searchTerm: searchTerm.length > 2 ? searchTerm : ''}],
+        queryFn: () => getDestinations(searchTerm.length > 2 ? searchTerm : ''),
+        staleTime: 1000 * 60 * 5, // Keep data fresh for 5 minutes
+        retry: 1,
+        placeholderData: keepPreviousData,
+    })
+    
     return (
         <div>
             <FieldButton onClick={() => modalRef.current?.showModal()}>
@@ -155,9 +104,9 @@ export default function DestinationsField() {
                         <i className="fi fi-rs-route size-5"></i>
                         <h4>مقاصد موردنظر را انتخاب کنید.</h4>
                     </div>
-                    <SearchInput placeHolder="یک شهر را جستجو کنید" />
+                    <SearchInput loading={isPending} value={searchTerm} changeHandler={handleSearchInputChange} placeHolder="یک شهر را جستجو کنید" />
                     <ul className='w-full flex flex-col gap-2 text-lg'>
-                        {Object.entries(destinationGroups).map(([countryCode, destinations]) => (
+                        {data && Object.entries(data).map(([countryCode, destinations]) => (
                             <li key={countryCode}>
                                 <div className='flex flex-wrap items-center gap-3 text-sm py-2 px-3'>
                                     <span>-</span>

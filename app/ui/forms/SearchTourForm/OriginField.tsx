@@ -10,7 +10,6 @@ import { getOrigins } from "@/app/utils/queries";
 
 export default function OriginField() {
     const modalRef = useRef<HTMLDialogElement>(null);
-    const [searchTerm, setSearchTerm] = useState<string>('');
     const [field, meta, helpers] = useField<number | null>({ name: 'origin' });
     const [state, setState] = useState<ORIGIN>()
     useEffect(() => {
@@ -27,7 +26,8 @@ export default function OriginField() {
     function handleToggle(origin: ORIGIN) {
         setState(prevState => prevState?.id === origin.id ? undefined : origin)
     }
-
+    
+    const [searchTerm, setSearchTerm] = useState<string>('');
     function handleSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
         setSearchTerm(event.currentTarget.value)
     }
