@@ -7,6 +7,9 @@ import OriginField from './OriginField';
 import { Formik } from 'formik';
 import DestinationsField from './DestinationsField';
 import DatesField from './DatesField';
+import { QueryClientProvider, QueryClient, useQuery } from '@tanstack/react-query';
+
+const queryClient = new QueryClient()
 
 export default function SearchTourForm() {
     const [formActive, setFormActive] = useState(false);
@@ -14,7 +17,6 @@ export default function SearchTourForm() {
     function handleButtonClick(e: MouseEvent<HTMLDivElement>) {
         !formActive && setFormActive(true);
     }
-
     return (
         <div className="dark:bg-black/20 bg-yellow-100/80 shadow-lg rounded-md w-4/5 min-h-96 h-fit -mt-16 relative">
             {/* This div is relative and will act as the base layer */}
@@ -39,6 +41,7 @@ export default function SearchTourForm() {
                         className='shadow-md bg-zinc-700 dark:bg-darkBlue-marian-light transition-discrete duration-[1s]'
                     />
                 </div>
+                <QueryClientProvider client={queryClient}>
                 {formActive && (
                     <Formik
                         initialValues={{
@@ -60,6 +63,7 @@ export default function SearchTourForm() {
                         )}
                     </Formik>
                 )}
+                </QueryClientProvider>
             </div>
         </div>
     );

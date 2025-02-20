@@ -1,3 +1,5 @@
+import { AxiosError } from "axios"
+
 export type ID = number
 export type UUID = string
 export type ULID = string
@@ -25,3 +27,10 @@ export type COUNTRY = {
     name: string
     name_fa: string
 }
+
+export type ErrorResponse = {
+    errors: [{[key: string]: string[]}],
+    message: string
+}
+
+export type HttpError = AxiosError<ErrorResponse>

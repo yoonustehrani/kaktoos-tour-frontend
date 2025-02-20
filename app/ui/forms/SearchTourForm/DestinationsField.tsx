@@ -1,6 +1,6 @@
 import { Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import Modal from "@/app/ui/Modal"
-import { DESTINATION, DESTINATIONS_GROUPPED, ID } from "@/app/ui/types"
+import { DESTINATION, DESTINATIONS_GROUPPED, ID } from "@/app/utils/types"
 import SearchInput from "./SearchInput"
 import Image from "next/image";
 import { useField } from "formik";
@@ -155,7 +155,7 @@ export default function DestinationsField() {
                         <i className="fi fi-rs-route size-5"></i>
                         <h4>مقاصد موردنظر را انتخاب کنید.</h4>
                     </div>
-                    <SearchInput placeHolder="یک شهر را جستجو کنید"/>
+                    <SearchInput placeHolder="یک شهر را جستجو کنید" />
                     <ul className='w-full flex flex-col gap-2 text-lg'>
                         {Object.entries(destinationGroups).map(([countryCode, destinations]) => (
                             <li key={countryCode}>
@@ -177,7 +177,7 @@ export default function DestinationsField() {
                                                 </div>
                                                 <div className='flex items-center gap-4'>
                                                     <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{dest.tours_count} تور</span>
-                                                    <input type="checkbox" onChange={() => {}} checked={isChecked(dest.id)} />
+                                                    <input type="checkbox" onChange={() => { }} checked={isChecked(dest.id)} />
                                                 </div>
                                             </li>
                                         ))}

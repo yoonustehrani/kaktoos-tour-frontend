@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< Updated upstream
+=======
+    "@tanstack/react-query": "^5.66.7",
+>>>>>>> Stashed changes
     "@types/moment-jalaali": "^0.7.9",
+    "@uidotdev/usehooks": "^2.4.1",
+    "@vercel/speed-insights": "^1.2.0",
+    "axios": "^1.7.9",
     "formik": "^2.4.6",
+    "lodash": "^4.17.21",
     "moment": "^2.30.1",
     "moment-jalaali": "^0.10.4",
     "next": "15.1.6",
@@ -19,6 +27,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tanstack/eslint-plugin-query": "^5.66.1",
+    "@types/lodash": "^4.17.15",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

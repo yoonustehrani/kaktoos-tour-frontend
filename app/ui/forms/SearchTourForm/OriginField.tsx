@@ -1,31 +1,16 @@
-import { Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { ChangeEvent, Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import Modal from "@/app/ui/Modal"
-import { ID, ORIGIN } from "@/app/ui/types"
+import { HttpError, ID, ORIGIN } from "@/app/utils/types"
 import SearchInput from "./SearchInput"
 import Image from "next/image";
 import { useField } from "formik";
 import FieldButton from "./FieldButton";
-
-const origins: ORIGIN[] = [
-    {
-        "id": 1,
-        "name": "Mashhad",
-        "name_fa": "مشهد",
-        "country_code": "IR",
-        "tours_from_count": 8
-    },
-    {
-        "id": 2,
-        "name": "Tehran",
-        "name_fa": "تهران",
-        "country_code": "IR",
-        "tours_from_count": 0
-    }
-]
-
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { getOrigins } from "@/app/utils/queries";
 
 export default function OriginField() {
     const modalRef = useRef<HTMLDialogElement>(null);
+    const [searchTerm, setSearchTerm] = useState<string>('');
     const [field, meta, helpers] = useField<number | null>({ name: 'origin' });
     const [state, setState] = useState<ORIGIN>()
     useEffect(() => {
@@ -42,6 +27,19 @@ export default function OriginField() {
     function handleToggle(origin: ORIGIN) {
         setState(prevState => prevState?.id === origin.id ? undefined : origin)
     }
+
+    function handleSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
+        setSearchTerm(event.currentTarget.value)
+    }
+
+    const {data, isPending, isError, error} = useQuery<ORIGIN[], HttpError>({
+        queryKey: ['origins', {searchTerm: searchTerm.length > 2 ? searchTerm : ''}],
+        queryFn: () => getOrigins(searchTerm.length > 2 ? searchTerm : ''),
+        staleTime: 1000 * 60 * 5, // Keep data fresh for 5 minutes
+        retry: 1,
+        placeholderData: keepPreviousData,
+    })
+    
     return (
         <div>
             <FieldButton onClick={() => modalRef.current?.showModal()}>
@@ -54,7 +52,7 @@ export default function OriginField() {
                 )}
                 {state && (
                     <>
-                        <Image className="rounded-full" src={`/flags/1x1/${state?.country_code.toLowerCase()}.svg`} height={45} width={45} alt="Country Flag"/>
+                        <Image className="rounded-full" src={`/flags/1x1/${state?.country_code.toLowerCase()}.svg`} height={45} width={45} alt="Country Flag" />
                         <div className="flex flex-col gap-1 grow">
                             <h5 className="font-bold text-base">{state.name_fa}</h5>
                             <h6 className="text-xs">{state.name}</h6>
@@ -71,9 +69,10 @@ export default function OriginField() {
                         <i className="fi fi-rs-marker size-5"></i>
                         <h4>یک مبدا انتخاب کنید.</h4>
                     </div>
-                    <SearchInput placeHolder='مبدا را جستجو کنید'/>
+                    <SearchInput loading={isPending} value={searchTerm} changeHandler={handleSearchInputChange} placeHolder='مبدا را جستجو کنید' />
+                    <p className="h-4 text-sm text-red-500">{isError && error?.response?.data.message}</p>
                     <ul className='w-full flex flex-col gap-2 text-lg'>
-                        {origins.map(origin => (
+                        {data && data.map(origin => (
                             <li
                                 key={origin.id}
                                 className={`select-item ${isChecked(origin.id) ? 'active' : ''}`}
