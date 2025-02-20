@@ -9,10 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-=======
     "@tanstack/react-query": "^5.66.7",
->>>>>>> Stashed changes
     "@types/moment-jalaali": "^0.7.9",
     "@uidotdev/usehooks": "^2.4.1",
     "@vercel/speed-insights": "^1.2.0",
