@@ -31,6 +31,7 @@ export default function Logo() {
             width={400}
             height={400}
             className="h-full w-auto"
+            priority
           />
         </picture>
     );

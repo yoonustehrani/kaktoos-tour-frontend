@@ -20,7 +20,8 @@
     "moment-jalaali": "^0.10.4",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "use-debounce": "^10.0.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

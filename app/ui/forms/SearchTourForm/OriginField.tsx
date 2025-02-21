@@ -82,7 +82,7 @@ export default function OriginField() {
                                     <span>{origin.name_fa} - {origin.name}</span>
                                 </div>
                                 <div className='flex items-center gap-4'>
-                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{origin.tours_from_count} تور</span>
+                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{origin.tours_count} تور</span>
                                     <span className={`input ${isChecked(origin.id) ? 'active' : ''}`}></span>
                                 </div>
                             </li>
