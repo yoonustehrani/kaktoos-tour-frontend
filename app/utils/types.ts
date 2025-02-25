@@ -87,6 +87,11 @@ export type TOUR_RESULT = {
         min_adult_price: number
         min_adult_price_display: string
     }[]
+    destinations: {
+        name: string
+        name_fa: string
+        country_code: string
+    }[]
 }
 
 export type TOUR_SEARCH_API_RESPONSE = {

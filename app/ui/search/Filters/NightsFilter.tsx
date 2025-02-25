@@ -46,7 +46,7 @@ export default function NightsFilter({items}: {items: TOUR_META_NIGHT[]})
                         </div>
                         <div className='flex items-center gap-4'>
                             <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{item.tours_count} تور</span>
-                            <input type="checkbox" onClick={() => {}} checked={isChecked(item.nights)} />
+                            <input type="checkbox" onChange={() => {}} checked={isChecked(item.nights)} />
                         </div>
                     </li>
                 ))}

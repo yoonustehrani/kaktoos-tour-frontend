@@ -6,6 +6,8 @@ import LocationFilter from "./Filters/LocationFilter";
 import NightsFilter from "./Filters/NightsFilter";
 import PriceInput from "./PriceInput";
 import { SEARCH_TOUR_ROUTE_SEARCH_PARAMS } from "@/app/utils/types";
+import Tours from "./Tours";
+import { unstable_cache } from "next/cache";
 
 export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_PARAMS)
 {
@@ -16,16 +18,19 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
         }
         return items
     }
+    
+    const tours = await unstable_cache(async () => {
+        return getTours({
+            countries: getSearchParamAsArray(searchParams, 'countries'),
+            origins: getSearchParamAsArray(searchParams, 'origins')?.map(x => Number(x)),
+            destinations: getSearchParamAsArray(searchParams, 'destinations')?.map(x => Number(x)),
+            nights: getSearchParamAsArray(searchParams, 'nights')?.map(x => Number(x)),
+        })
+    }, ['tours', JSON.stringify(searchParams)], { revalidate: 5 * 60, tags: ['tours'] })();
 
-    const tours = await getTours({
-        countries: getSearchParamAsArray(searchParams, 'countries'),
-        origins: getSearchParamAsArray(searchParams, 'origins')?.map(x => Number(x)),
-        destinations: getSearchParamAsArray(searchParams, 'destinations')?.map(x => Number(x)),
-        nights: getSearchParamAsArray(searchParams, 'nights')?.map(x => Number(x)),
-    });
     return (
-        <>
-            <aside className="dark:bg-darkBlue-oxford rounded-lg w-96 p-5 flex flex-col gap-6">
+        <div className="w-full flex gap-3">
+            <aside className="dark:bg-darkBlue-oxford bg-white border border-black/10 dark:border-none shadow-md rounded-lg w-96 p-5 flex flex-col flex-none gap-6">
                 <FilterHead />
                 <hr />
                 <FilterBox title="بازه قیمتی">
@@ -51,9 +56,7 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
                 <hr />
                 <NightsFilter items={tours.meta.number_of_nights} />
             </aside>
-            <section className="dark:bg-darkBlue-oxford rounded-lg grow">
-                {/* <Tours searchParams={searchParams} initialTours={tours.results.data} /> */}
-            </section>
-        </>
+            <Tours tours={tours.results.data} />
+        </div>
     )
 }

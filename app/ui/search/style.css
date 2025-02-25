@@ -1,0 +1,59 @@
+@keyframes moveToCenter {
+    0% {
+        bottom: -0.5rem; /* Equivalent to -bottom-2 in Tailwind */
+        right: 0.75rem; /* Equivalent to right-3 in Tailwind */
+    }
+    20% {
+        bottom: calc(50% - 1.5rem);
+        right: calc(50% - 1.5rem);
+    }
+    100% {
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding: 1rem;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* visibility: hidden; Start hidden */
+    }
+    100% {
+        right: 0;
+        opacity: 1;
+        /* visibility: visible; End visible */
+    }
+}
+
+.moveable-button {
+    @apply -bottom-2 right-3 duration-300 max-h-full;
+    &>div {
+        opacity: 0; /* Start hidden */
+        /* visibility: hidden; */
+    }
+}
+
+.moveable-button.active {
+    animation: moveToCenter 500ms linear forwards;
+    &>span {
+        animation: fadeOut 300ms linear forwards;
+        animation-delay: 600ms;
+    }
+    &>div {
+        animation: fadeIn 300ms linear forwards;
+        animation-delay: 1.2s;
+    }
+}
