@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'api.kaktoos.example',
+        port: '',
+        pathname: '/storage/**',
+        search: '',
+      },
+    ],
   }
 };
 
