@@ -2,7 +2,7 @@ import axios from "axios";
 import { COUNTRY, DESTINATION, DESTINATIONS_GROUPPED, JOURNEY_COURSE, ORIGIN } from "./types";
 
 const http = axios.create({
-    baseURL: 'http://service.tour.kaktoos.example/api'
+    baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api`
 })
 
 export const getOrigins = async (term?: string):Promise<ORIGIN[]> => (
