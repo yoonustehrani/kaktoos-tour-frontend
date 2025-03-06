@@ -13,7 +13,7 @@ type DATES = {
 }
 
 type Action =
-    | { type: 'SET_START_DATE'; payload: string }
+    | { type: 'SET_START_DATE'; payload: string | null }
     | { type: 'SET_END_DATE'; payload: string | null };
 
 function datesReducer(state: DATES, action: Action): DATES {
@@ -41,11 +41,11 @@ export default function DatesField({
     const noDatePicked = useMemo(() => state.start_date === null && state.end_date == null, [state])
 
     useEffect(() => {
-        setFieldValue(state.start_date || null)
-        setFieldValue(state.end_date || null)
+        setFieldValue('start_date', state.start_date || null)
+        setFieldValue('end_date', state.end_date || null)
     }, [state])
 
-    function addStartDate(date: string) {
+    function addStartDate(date: string|null) {
         dispatch({ type: 'SET_START_DATE', payload: date })
     }
 
@@ -75,7 +75,7 @@ export default function DatesField({
             </div>
             <Modal ref={modalRef}>
                 <Calendar range={true} handlePick={(startDate, endDate) => {
-                    addStartDate(startDate)
+                    addStartDate(startDate || null)
                     addEndDate(endDate || null)
                     modalRef.current?.close()
                 }} />

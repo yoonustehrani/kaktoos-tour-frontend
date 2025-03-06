@@ -4,10 +4,11 @@ import { MouseEvent, useRef, useState } from 'react';
 import Hexagon from '../../Hexagon';
 import '../style.css';
 import OriginField from './OriginField';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import DestinationsField from './DestinationsField';
 import DatesField from './DatesField';
 import { QueryClientProvider, QueryClient, useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 
 const queryClient = new QueryClient()
 
@@ -17,6 +18,7 @@ export default function SearchTourForm() {
     function handleButtonClick(e: MouseEvent<HTMLDivElement>) {
         !formActive && setFormActive(true);
     }
+    const router = useRouter()
     return (
         <div className="dark:bg-black/20 bg-yellow-100/80 shadow-lg rounded-md w-4/5 min-h-96 h-fit -mt-16 relative">
             {/* This div is relative and will act as the base layer */}
@@ -35,7 +37,7 @@ export default function SearchTourForm() {
                     <Hexagon
                         onClick={handleButtonClick}
                         labelClassName='bg-zinc-800 dark:bg-darkBlue-marian-dark'
-                        label={formActive ? 'جستجوی تور' : 'شروع جستجو'}
+                        label={formActive ? 'فرم جستجو' : 'شروع جستجو'}
                         iconClass='bg-zinc-600 dark:bg-lightBlue-yin fi fi-rs-search'
                         size={formActive ? 0 : 2}
                         className='shadow-md bg-zinc-700 dark:bg-darkBlue-marian-light transition-discrete duration-[1s]'
@@ -45,20 +47,42 @@ export default function SearchTourForm() {
                 {formActive && (
                     <Formik
                         initialValues={{
-                            origin: null,
-                            destinations: [],
+                            origins: null,
+                            destinations: null,
                             start_date: null,
                             end_date: null
+                        } as {
+                            origins: null|number[],
+                            destinations: null|number[],
+                            start_date: null|string,
+                            end_date: null|string
                         }}
-                        onSubmit={() => {
-        
+                        onSubmit={(values) => {
+                            let queries: string[] = []
+                            Object.entries(values).filter(([k, v]) => v).forEach(([k, v]) => {
+                                if (Array.isArray(v)) {
+                                    k += '[]'
+                                    v.forEach(x => {
+                                        queries.push(`${k}=${x}`)
+                                    })
+                                    return;
+                                }
+                                queries.push(`${k}=${v}`)
+                            })
+                            router.push('/tours?' + queries.join('&'))
                         }}
                     >
-                        {({setFieldValue}) => (
+                        {({setFieldValue, submitForm}) => (
                             <div className='grow w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-4 pt-8'>
                                 <OriginField />
                                 <DestinationsField />
                                 <DatesField setFieldValue={setFieldValue}/>
+                                <div className='col-span-full mt-12 w-full flex items-center justify-center'>
+                                    <button onClick={submitForm} type='button' className="bg-butterscotch border-raw-umber dark:bg-darkBlue-marian-light dark:border-darkBlue-marian-dark border-b-4 border-r-4 px-3 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
+                                        <span className="fi fi-rs-search w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
+                                        جستجو کن
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </Formik>

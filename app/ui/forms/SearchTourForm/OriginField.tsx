@@ -10,13 +10,15 @@ import { getOrigins } from "@/app/utils/queries";
 
 export default function OriginField() {
     const modalRef = useRef<HTMLDialogElement>(null);
-    const [field, meta, helpers] = useField<number | null>({ name: 'origin' });
+    const [field, meta, helpers] = useField<number[] | null>({ name: 'origins' });
     const [state, setState] = useState<ORIGIN>()
     useEffect(() => {
         if (state) {
-            helpers.setValue(state.id)
+            helpers.setValue([state.id])
             modalRef.current?.close()
+            return;
         }
+        helpers.setValue(null)
     }, [state])
 
     function isChecked(id: ID) {

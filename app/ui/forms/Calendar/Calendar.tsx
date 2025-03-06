@@ -13,7 +13,7 @@ export default function Calendar({
     handlePick
 }: {
     range: boolean
-    handlePick: (startDate: string, endDate?: string) => void
+    handlePick: (startDate?: string, endDate?: string) => void
 }) {
     const now = useMemo(() => getJMoment()(), []);
     const [year, setYear] = useState<number>(now.jYear())
@@ -88,7 +88,9 @@ export default function Calendar({
                 getJMoment()(convertToString(selectedDate), 'jYYYY/jM/jD').format('YYYY-MM-DD'),
                 endDate && getJMoment()(convertToString(endDate), 'jYYYY/jM/jD').format('YYYY-MM-DD'),
             )
+            return;
         }
+        handlePick()
     }
     // function selectTodayDate()
     // {

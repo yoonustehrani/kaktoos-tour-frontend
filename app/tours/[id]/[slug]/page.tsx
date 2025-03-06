@@ -61,7 +61,7 @@ export default async function Page({params, searchParams}: PageProps) {
                     <h1 className="text-3xl font-bold">{tour.title} - {tour.number_of_nights} شب</h1>
                 </div>
                 <div className="w-full flex gap-3">
-                    <aside className="overflow-hidden w-full lg:w-fit dark:bg-darkBlue-oxford rounded-md p-3 h-fit">
+                    <aside className="overflow-hidden w-full lg:w-fit dark:bg-gray-950/50 shadow-md rounded-md p-3 h-fit">
                         <DatesNav dates={tour.dates} currentDateId={currentDate.id}/>
                     </aside>
                     <section className="shrink">

@@ -34,12 +34,16 @@ function destinationReducer(state: DESTINATION[], action: Action): DESTINATION[]
 
 export default function DestinationsField() {
     const modalRef = useRef<HTMLDialogElement>(null);
-    const [field, meta, helpers] = useField<number[]>({ name: 'destinations[]' });
+    const [field, meta, helpers] = useField<number[]|null>({ name: 'destinations' });
     // const initialState = useMemo(() => field.value, [])
     const [state, dispath] = useReducer(destinationReducer, [])
     useEffect(() => {
         if (state) {
-            helpers.setValue(state.map(x => x.id))
+            if (state.length > 0) {
+                helpers.setValue(state.map(x => x.id))
+                return;
+            }
+            helpers.setValue(null)
         }
     }, [state])
 
