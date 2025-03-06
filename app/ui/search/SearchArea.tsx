@@ -26,7 +26,7 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
             destinations: getSearchParamAsArray(searchParams, 'destinations')?.map(x => Number(x)),
             nights: getSearchParamAsArray(searchParams, 'nights')?.map(x => Number(x)),
         })
-    }, ['tours', JSON.stringify(searchParams)], { revalidate: 5 * 60, tags: ['tours'] })();
+    }, ['tours', JSON.stringify(searchParams)], { revalidate: 5, tags: ['tours'] })();
 
     return (
         <div className="w-full flex gap-3">
@@ -35,12 +35,12 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
                 <hr />
                 <FilterBox title="بازه قیمتی">
                     <div className="flex flex-col gap-3 py-4">
-                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-900 rounded-lg">
+                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-200 dark:bg-gray-900 rounded-lg">
                             <label className="text-sm" htmlFor="">از:</label>
                             <PriceInput initialValue={tours.meta.price.min} className="w-full bg-transparent py-2 px-2" />
                             <span className="text-xs">تومان</span>
                         </div>
-                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-900 rounded-lg">
+                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-200 dark:bg-gray-900 rounded-lg">
                             <label className="text-sm" htmlFor="">تا:</label>
                             <PriceInput initialValue={tours.meta.price.max} className="w-full bg-transparent py-2 px-2" />
                             <span className="text-xs">تومان</span>

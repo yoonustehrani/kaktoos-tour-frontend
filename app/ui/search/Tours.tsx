@@ -2,7 +2,7 @@ import { TOUR_RESULT } from "@/app/utils/types"
 import Image from "next/image"
 import Link from "next/link"
 import TourCardButton from "./TourCardButton";
-import { convertToJalali, getJMoment } from "@/app/utils";
+import { convertToJalali, farsiNumber, getJMoment } from "@/app/utils";
 import TourDatesCloseButton from "./TourDatesCloseButton";
 
 type Props = {
@@ -32,12 +32,14 @@ export default function Tours({tours}: Props)
                                                 <TourDatesCloseButton />
                                             </li>
                                             {tour.dates.map(date => (
-                                               <li className="text-sm flex items-center gap-3 duration-300 bg-butterscotch hover:bg-buff dark:bg-darkBlue-marian-light dark:hover:bg-blue-800 px-2 py-1 rounded-md">
-                                                    <span className="fi fi-rs-calendar text-2xl"></span>
-                                                    <div className="flex flex-col items-start">
-                                                        <span>{convertToJalali(date.start_date)} - {convertToJalali(date.end_date)}</span>
-                                                        <span>{`از`} {date.min_adult_price_display}</span>
-                                                    </div>
+                                               <li key={date.id} className="text-sm">
+                                                    <Link href={getTourHref(tour) + `?date=${date.id}`} className="flex items-center gap-3 duration-300 bg-gray-400 hover:bg-buff dark:bg-darkBlue-marian-light dark:hover:bg-blue-800 px-2 py-1 rounded-md">
+                                                        <span className="fi fi-rs-calendar text-2xl"></span>
+                                                        <div className="flex flex-col items-start">
+                                                            <span>{convertToJalali(date.start_date)} - {convertToJalali(date.end_date)}</span>
+                                                            <span>{`از`} {date.min_adult_price_display}</span>
+                                                        </div>
+                                                    </Link>
                                                </li> 
                                             ))}
                                         </ul>
@@ -59,7 +61,7 @@ export default function Tours({tours}: Props)
                             <div className="px-3 py-4 flex flex-col justify-between gap-4 grow">
                                 <Link href={getTourHref(tour)} className="font-bold text-2xl">{tour.title}</Link>
                                 <hr className="opacity-90 dark:opacity-20"/>
-                                <div className="flex items-center justify-between">
+                                <div className="flex items-center justify-between text-gray-500">
                                     <span className="flex items-center gap-2">
                                         <span>ماهان ایر</span>
                                         <i className="h-5 fi fi-rs-plane"></i>
@@ -71,8 +73,10 @@ export default function Tours({tours}: Props)
                                 </div>
                                 <hr className="opacity-90 dark:opacity-20"/>
                                 <div className="flex justify-between items-center gap-4">
-                                    <p className="text-nowrap">شروع قیمت‌</p>
-                                    <p className="text-pretty text-left">{tour.dates.find(x => x.min_adult_price === tour.min_adult_price)?.min_adult_price_display}</p>
+                                    <p className="text-nowrap text-gray-600 dark:text-gray-400">شروع قیمت‌</p>
+                                    <p className="text-pretty text-left font-bold">{
+                                        farsiNumber(tour.dates.find(x => x.min_adult_price === tour.min_adult_price).min_adult_price_display)    
+                                    }</p>
                                 </div>
                                 <div className="flex justify-end">
                                     <Link href={getTourHref(tour)} className="dark:bg-gray-800 bg-antiFlashWhite px-3 py-2 rounded-md flex items-center gap-2 dark:shadow-md">مشاهده <i className="h-5 fi fi-rs-eye"></i></Link>

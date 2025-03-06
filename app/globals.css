@@ -134,3 +134,7 @@ input:hover, input:focus, input:active {
 		@apply duration-300 bg-white ring-gray-700 dark:ring-gray-100 dark:bg-darkBlue-oxford h-3 aspect-square rounded-full ring-2 dark:ring-offset-darkBlue-oxford ring-offset-4;
 	}
 }
+
+hr {
+	@apply dark:border-gray-600 w-full;
+}

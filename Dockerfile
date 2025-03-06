@@ -6,18 +6,20 @@ RUN apt-get update && apt-get upgrade -y
 
 USER node
 
-RUN mkdir -p ~/.npm-global && npm config set prefix '~/.npm-global' && \
-    echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
-
-RUN npm install -g pnpm --verbose
+# RUN mkdir -p ~/.npm-global && npm config set prefix '~/.npm-global' && \
+#     echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
 
 RUN git config --global core.editor "code --wait"
 
 USER root
 
+RUN npm install -g pnpm --verbose
+
 RUN apt-get install -y tzdata && \
     ln -fs /usr/share/zoneinfo/Asia/Tehran /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
+
+# RUN link 
 
 USER node
 

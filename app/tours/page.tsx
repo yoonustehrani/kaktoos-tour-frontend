@@ -12,8 +12,8 @@ export default async function SearchPage(props: SEARCH_TOUR_ROUTE_PROPS) {
             <header className="w-full bg-lemmonChiffon dark:bg-darkBlue-oxford flex flex-col">
                 <Nav />
             </header>
-            <main className="dark:bg-gray-900 bg-gray-50 flex flex-wrap gap-x-8 gap-y-8 py-12 px-8">
-                <BreadCrumbs />
+            <main className="dark:bg-gray-900 bg-lemmonChiffon flex flex-wrap gap-x-8 gap-y-8 py-12 px-8">
+                <BreadCrumbs links={[{href: '/tours', text: 'تور ها'}]}/>
                 <SearchArea {...searchParams}/>
             </main>
         </>
