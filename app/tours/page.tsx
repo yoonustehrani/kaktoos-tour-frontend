@@ -12,7 +12,7 @@ export default async function SearchPage(props: SEARCH_TOUR_ROUTE_PROPS) {
             <header className="w-full bg-beige border-b border-black/10 dark:bg-darkBlue-oxford flex flex-col">
                 <Nav />
             </header>
-            <main className="dark:bg-gray-900 bg-beige flex flex-wrap gap-x-8 gap-y-8 py-12 px-8">
+            <main className="dark:bg-gray-900 bg-beige flex flex-wrap gap-x-8 gap-y-8 py-12 px-6 md:px-8">
                 <BreadCrumbs links={[{href: '/tours', text: 'تور ها'}]}/>
                 <SearchArea {...searchParams}/>
             </main>

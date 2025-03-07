@@ -16,7 +16,7 @@ function getTourHref(tour: TOUR_RESULT) {
 export default function Tours({tours}: Props)
 {
     return (
-        <section className="dark:bg-darkBlue-oxford rounded-lg p-4 grow bg-gray-100 border border-black/10 dark:border-none shadow-md">
+        <section className="dark:bg-darkBlue-oxford rounded-lg p-4 w-full md:grow bg-gray-100 border border-black/10 dark:border-none shadow-md">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                 {tours.map(tour => {
                     let countries = [...new Set(tour.destinations.map(x => x.country_code))]
