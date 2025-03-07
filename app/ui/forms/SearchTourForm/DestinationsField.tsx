@@ -1,77 +1,12 @@
-import { Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { ChangeEvent, Ref, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import Modal from "@/app/ui/Modal"
-import { DESTINATION, DESTINATIONS_GROUPPED, ID } from "@/app/ui/types"
+import { DESTINATION, DESTINATIONS_GROUPPED, HttpError, ID } from "@/app/utils/types"
 import SearchInput from "./SearchInput"
 import Image from "next/image";
 import { useField } from "formik";
 import FieldButton from "./FieldButton";
-
-const destinationGroups: DESTINATIONS_GROUPPED = {
-    "DE": [
-        {
-            "id": 3,
-            "name": "Cologne",
-            "name_fa": "کلن",
-            "country_code": "DE",
-            "tours_count": 3,
-            "country": {
-                "code": "DE",
-                "name": "Germany",
-                "name_fa": "آلمان"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Berlin",
-            "name_fa": "برلین",
-            "country_code": "DE",
-            "tours_count": 3,
-            "country": {
-                "code": "DE",
-                "name": "Germany",
-                "name_fa": "آلمان"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Hamburg",
-            "name_fa": "هامبورگ",
-            "country_code": "DE",
-            "tours_count": 3,
-            "country": {
-                "code": "DE",
-                "name": "Germany",
-                "name_fa": "آلمان"
-            }
-        }
-    ],
-    "FR": [
-        {
-            "id": 6,
-            "name": "Paris",
-            "name_fa": "پاریس",
-            "country_code": "FR",
-            "tours_count": 3,
-            "country": {
-                "code": "FR",
-                "name": "France",
-                "name_fa": "فرانسه"
-            }
-        },
-        {
-            "id": 7,
-            "name": "Nice",
-            "name_fa": "نیس",
-            "country_code": "FR",
-            "tours_count": 3,
-            "country": {
-                "code": "FR",
-                "name": "France",
-                "name_fa": "فرانسه"
-            }
-        }
-    ]
-}
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { getDestinations } from "@/app/utils/queries";
 
 type Action =
     | { type: 'ADD_DESTINATION'; payload: DESTINATION }
@@ -99,12 +34,16 @@ function destinationReducer(state: DESTINATION[], action: Action): DESTINATION[]
 
 export default function DestinationsField() {
     const modalRef = useRef<HTMLDialogElement>(null);
-    const [field, meta, helpers] = useField<number[]>({ name: 'destinations[]' });
+    const [field, meta, helpers] = useField<number[]|null>({ name: 'destinations' });
     // const initialState = useMemo(() => field.value, [])
     const [state, dispath] = useReducer(destinationReducer, [])
     useEffect(() => {
         if (state) {
-            helpers.setValue(state.map(x => x.id))
+            if (state.length > 0) {
+                helpers.setValue(state.map(x => x.id))
+                return;
+            }
+            helpers.setValue(null)
         }
     }, [state])
 
@@ -125,13 +64,27 @@ export default function DestinationsField() {
             ? removeDesination(destination.id)
             : addDesination(destination)
     }
+
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    function handleSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
+        setSearchTerm(event.currentTarget.value)
+    }
+
+    const {data, isPending, isError, error} = useQuery<DESTINATIONS_GROUPPED, HttpError>({
+        queryKey: ['destinations', {searchTerm: searchTerm.length > 2 ? searchTerm : ''}],
+        queryFn: () => getDestinations(searchTerm.length > 2 ? searchTerm : ''),
+        staleTime: 1000 * 60 * 5, // Keep data fresh for 5 minutes
+        retry: 1,
+        placeholderData: keepPreviousData,
+    })
+    
     return (
         <div>
             <FieldButton onClick={() => modalRef.current?.showModal()}>
                 <i className="fi fi-rs-route h-full pt-1"></i>
                 <span>{state.length > 0 ? 'افزودن مقصد' : 'انتخاب مقصد'}</span>
             </FieldButton>
-            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
+            <div className={`w-full max-w-xs bg-vanilla dark:bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
                 {state.length === 0 && (
                     <p className="text-justify">با کلیک روی انتخاب مقصد می توانید مقاصد سفر خود را مشخص کنید.</p>
                 )}
@@ -155,9 +108,9 @@ export default function DestinationsField() {
                         <i className="fi fi-rs-route size-5"></i>
                         <h4>مقاصد موردنظر را انتخاب کنید.</h4>
                     </div>
-                    <SearchInput placeHolder="یک شهر را جستجو کنید"/>
+                    <SearchInput loading={isPending} value={searchTerm} changeHandler={handleSearchInputChange} placeHolder="یک شهر را جستجو کنید" />
                     <ul className='w-full flex flex-col gap-2 text-lg'>
-                        {Object.entries(destinationGroups).map(([countryCode, destinations]) => (
+                        {data && Object.entries(data).map(([countryCode, destinations]) => (
                             <li key={countryCode}>
                                 <div className='flex flex-wrap items-center gap-3 text-sm py-2 px-3'>
                                     <span>-</span>
@@ -176,8 +129,8 @@ export default function DestinationsField() {
                                                     <span>{dest.name_fa} - {dest.name}</span>
                                                 </div>
                                                 <div className='flex items-center gap-4'>
-                                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{dest.tours_count} تور</span>
-                                                    <input type="checkbox" onChange={() => {}} checked={isChecked(dest.id)} />
+                                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full text-label text-xs'>{dest.tours_count} تور</span>
+                                                    <input type="checkbox" onChange={() => { }} checked={isChecked(dest.id)} />
                                                 </div>
                                             </li>
                                         ))}

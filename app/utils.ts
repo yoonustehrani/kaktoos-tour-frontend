@@ -60,5 +60,10 @@ export function farsiNumber(number: number | string): string {
 
 export function convertToJalali(date: string)
 {
-    return farsiNumber(moment(date, 'YYYY-MM-DD').format('jYYYY/jMM/jDD'))
+    return farsiNumber(getJalaliMomentOf(date).format('jYYYY/jMM/jDD'))
+}
+
+export function getJalaliMomentOf(date: string)
+{
+    return moment(date, 'YYYY-MM-DD');   
 }
