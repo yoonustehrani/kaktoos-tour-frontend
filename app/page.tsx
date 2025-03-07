@@ -3,6 +3,7 @@ import SandDune from "./ui/vectors/SandDune";
 import Link from "next/link";
 import SearchTourForm from "./ui/forms/SearchTourForm/SearchTourForm";
 import Nav from "./ui/nav/Nav";
+import Footer from "./ui/footer/Footer";
 
 export default function Home() {
 	return (
@@ -42,9 +43,6 @@ export default function Home() {
 			<main className="w-full h-auto">
 				<section className="w-full h-fit bg-vanilla dark:bg-gray-900 py-8 md:pt-0 flex justify-center">
 					<SearchTourForm />
-				</section>
-				<section className="w-full h-96 dark:bg-darkBlue-oxford">
-
 				</section>
 			</main>
 		</>

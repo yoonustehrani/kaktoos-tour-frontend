@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Footer from "./ui/footer/Footer";
 
 export const metadata: Metadata = {
 	title: {
@@ -19,6 +20,7 @@ export default function RootLayout({
 				className={`subpixel-antialiased`}
 			>
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
