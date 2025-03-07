@@ -48,7 +48,7 @@ export default function OriginField() {
                 <i className="fi fi-rs-marker h-full pt-1"></i>
                 <span>{`انتخاب مبدا`}</span>
             </FieldButton>
-            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
+            <div className={`w-full max-w-xs bg-vanilla dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
                 {!state && (
                     <p className="text-justify">روی انتخاب مبدا کلیک کنید تا شهر مبدا سفر خود را مشخص کنید.</p>
                 )}
@@ -84,7 +84,7 @@ export default function OriginField() {
                                     <span>{origin.name_fa} - {origin.name}</span>
                                 </div>
                                 <div className='flex items-center gap-4'>
-                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{origin.tours_count} تور</span>
+                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full text-label text-xs'>{origin.tours_count} تور</span>
                                     <span className={`input ${isChecked(origin.id) ? 'active' : ''}`}></span>
                                 </div>
                             </li>

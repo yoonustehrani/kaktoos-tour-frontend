@@ -7,7 +7,8 @@ import Nav from "./ui/nav/Nav";
 export default function Home() {
 	return (
 		<>
-			<header className="w-full bg-lemmonChiffon dark:bg-darkBlue-oxford flex flex-col">
+		{/* rgb(249, 248, 239) */}
+			<header className="w-full bg-beige dark:bg-darkBlue-oxford flex flex-col">
 				<Nav />
 				<section className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-3 xl:gap-20 w-full px-3 xl:px-6 pt-3 pb-6 mb-24 mt-4">
 					<div className="md:w-1/2 bg-transparent px-3 xl:px-6 flex flex-col gap-4 text-gray-800 dark:text-gray-300">

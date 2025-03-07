@@ -11,6 +11,7 @@ export default {
 			colors: {
 				background: "var(--background)",
 				foreground: "var(--foreground)",
+				beige: "#f9ffe9",
 				eerieBlack: "#212121",
 				raisinBlack: {
 					dark: "#26282C",

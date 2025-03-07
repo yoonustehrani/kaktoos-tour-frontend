@@ -51,7 +51,7 @@ export default function CountryFilter({items}: Props)
                             <span>{location.name_fa} - {location.name}</span>
                         </div>
                         <div className='flex items-center gap-4'>
-                            <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{location.tours_count} تور</span>
+                            <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full text-label text-xs'>{location.tours_count} تور</span>
                             <input type="checkbox" onChange={() => {}} checked={isChecked(location.code)}/>
                         </div>
                     </li>

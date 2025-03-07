@@ -20,7 +20,7 @@ export default function SearchTourForm() {
     }
     const router = useRouter()
     return (
-        <div className="dark:bg-black/20 bg-yellow-100/80 shadow-lg rounded-md w-4/5 min-h-96 h-fit -mt-16 relative">
+        <div className="dark:bg-black/20 bg-beige/90 border border-b-0 border-black/10 shadow-lg rounded-md w-4/5 min-h-96 h-fit -mt-16 relative">
             {/* This div is relative and will act as the base layer */}
             <div id='search-tour-form' className='w-full min-h-96 h-full absolute z-10 overflow-hidden'>
                 <span></span>
@@ -77,8 +77,8 @@ export default function SearchTourForm() {
                                 <OriginField />
                                 <DestinationsField />
                                 <DatesField setFieldValue={setFieldValue}/>
-                                <div className='col-span-full mt-12 w-full flex items-center justify-center'>
-                                    <button onClick={submitForm} type='button' className="bg-butterscotch border-raw-umber dark:bg-darkBlue-marian-light dark:border-darkBlue-marian-dark border-b-4 border-r-4 px-3 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
+                                <div className='col-span-full mt-12 w-full flex items-center justify-center dakr:text-antiFlashWhite text-white'>
+                                    <button onClick={submitForm} type='button' className="bg-zinc-700 border-zinc-800 dark:bg-darkBlue-marian-light dark:border-darkBlue-marian-dark border-b-4 border-r-4 px-3 py-1 rounded-md flex items-center gap-2"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
                                         <span className="fi fi-rs-search w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
                                         جستجو کن
                                     </button>

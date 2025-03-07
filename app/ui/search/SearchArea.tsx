@@ -30,7 +30,7 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
 
     return (
         <div className="w-full flex gap-3">
-            <aside className="dark:bg-darkBlue-oxford bg-white border border-black/10 dark:border-none shadow-md rounded-lg w-96 p-5 flex flex-col flex-none gap-6">
+            <aside className="dark:bg-darkBlue-oxford bg-gray-100 border border-black/10 dark:border-none shadow-md rounded-lg w-96 p-5 flex flex-col flex-none gap-6">
                 <FilterHead />
                 <hr />
                 <FilterBox title="بازه قیمتی">

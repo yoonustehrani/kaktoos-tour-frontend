@@ -45,10 +45,10 @@ export default async function Page({params, searchParams}: PageProps) {
 
     return (
         <>
-            <header className="w-full bg-lemmonChiffon dark:bg-darkBlue-oxford flex flex-col">
+            <header className="w-full bg-beige border-b border-black/10 dark:bg-darkBlue-oxford flex flex-col">
                 <Nav />
             </header>
-            <main className="dark:bg-gray-900 bg-lemmonChiffon flex flex-wrap gap-x-8 gap-y-8 py-12 px-8 w-full overflow-hidden">
+            <main className="dark:bg-gray-900 bg-beige flex flex-wrap gap-x-8 gap-y-8 py-12 px-3 lg:px-8 w-full overflow-hidden">
                 <BreadCrumbs links={links}/>
                 <div className="flex items-center gap-3 w-full">
                     <div className="flex items-center">
@@ -60,21 +60,21 @@ export default async function Page({params, searchParams}: PageProps) {
                     </div>
                     <h1 className="text-3xl font-bold">{tour.title} - {tour.number_of_nights} شب</h1>
                 </div>
-                <div className="w-full flex gap-3">
-                    <aside className="overflow-hidden w-full lg:w-fit dark:bg-gray-950/50 shadow-md rounded-md p-3 h-fit">
+                <div className="w-full flex flex-col lg:flex-row gap-3">
+                    <aside className="overflow-hidden w-full lg:w-fit bg-white border dark:border-none border-black/10 dark:bg-gray-950/50 shadow-md rounded-md p-3 h-fit">
                         <DatesNav dates={tour.dates} currentDateId={currentDate.id}/>
                     </aside>
-                    <section className="shrink">
+                    <section className="grow">
                         <section className="w-full p-3 mt-4">
                             <h3 className="mb-5 font-bold text-2xl flex flex-wrap items-center gap-3">
                                 <span className="fi fi-rs-route"></span>
                                 <span>برنامه سفر</span>
-                                <Suspense fallback={`loading ...`}>
-                                    <JourneyCourse destinations={tour.destinations} tourId={tour.id} dateId={currentDate.id}/>
-                                </Suspense>
                             </h3>
+                            <Suspense fallback={`loading ...`}>
+                                <JourneyCourse destinations={tour.destinations} tourId={tour.id} dateId={currentDate.id}/>
+                            </Suspense>
                         </section>
-                        <h3 className="mb-5 font-bold text-2xl flex flex-wrap items-center gap-3">
+                        <h3 className="my-5 font-bold text-2xl flex flex-wrap items-center gap-3">
                             <span>💰</span>
                             <span>شروع قیمت این تاریخ</span>
                             <span>از {currentDate.min_adult_price_display}</span>

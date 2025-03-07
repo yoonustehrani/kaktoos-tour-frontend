@@ -24,7 +24,7 @@ type PricingListProps = {
  
 const PricingListContainer: FunctionComponent<PricingListProps> = ({pricingList, destinations}) => {
     return (
-        <div className="p-4 dark:bg-gray-950/50 rounded-lg">
+        <div className="p-4 bg-white border border-black/10 shadow-md dark:bg-gray-950/50 rounded-lg">
             <div className="mb-4 flex flex-col items-center gap-4">
                 <h4 className="text-2xl font-bold flex items-center gap-2"><i className="h-7 fi fi-rs-box-circle-check"></i> پکیج {pricingList.package.title}</h4>
                 <div className="flex flex-wrap gap-4 py-3">

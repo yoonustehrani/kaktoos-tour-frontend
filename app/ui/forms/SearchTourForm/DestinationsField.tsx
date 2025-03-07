@@ -84,7 +84,7 @@ export default function DestinationsField() {
                 <i className="fi fi-rs-route h-full pt-1"></i>
                 <span>{state.length > 0 ? 'افزودن مقصد' : 'انتخاب مقصد'}</span>
             </FieldButton>
-            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
+            <div className={`w-full max-w-xs bg-vanilla dark:bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
                 {state.length === 0 && (
                     <p className="text-justify">با کلیک روی انتخاب مقصد می توانید مقاصد سفر خود را مشخص کنید.</p>
                 )}
@@ -129,7 +129,7 @@ export default function DestinationsField() {
                                                     <span>{dest.name_fa} - {dest.name}</span>
                                                 </div>
                                                 <div className='flex items-center gap-4'>
-                                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full bg-green-100 dark:bg-sky-800 text-xs'>{dest.tours_count} تور</span>
+                                                    <span className='inline-flex justify-center items-center h-6 w-fit px-3 rounded-full text-label text-xs'>{dest.tours_count} تور</span>
                                                     <input type="checkbox" onChange={() => { }} checked={isChecked(dest.id)} />
                                                 </div>
                                             </li>

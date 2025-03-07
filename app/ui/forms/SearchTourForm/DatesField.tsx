@@ -59,7 +59,7 @@ export default function DatesField({
                 <i className="fi fi-rs-calendar h-full pt-1"></i>
                 <span>{`انتخاب تاریخ`}</span>
             </FieldButton>
-            <div className={`w-full max-w-xs bg-white dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
+            <div className={`w-full max-w-xs bg-vanilla dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
                 {noDatePicked ? (
                     <p className="text-justify">روی انتخاب تاریخ کلیک کنید تا تاریخ رفت یا برگشت خود را مشخص کنید.</p>
                 ): (

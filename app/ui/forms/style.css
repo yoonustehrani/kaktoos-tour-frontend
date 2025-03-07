@@ -12,7 +12,7 @@
 }
 
 #search-tour-form > span {
-	@apply from-[#0c002b00] dark:to-[#1779ff] to-lion;
+	@apply from-[#0c002b00] dark:to-[#1779ff] to-zinc-600;
 }
 
 #search-tour-form > span:nth-child(1) {
