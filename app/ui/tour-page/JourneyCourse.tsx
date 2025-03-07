@@ -65,7 +65,7 @@ export default async function JourneyCourse({tourId, dateId, destinations}: Jour
                                     </div>
                                 </div>
                                 <div className="flex flex-col items-center text-xs gap-2 h-auto col-span-full pb-5 lg:p-0">
-                                    <img className="p-1 bg-antiFlashWhite/50 rounded-full" src={`http://api.kaktoos.example/${course.transportation_firm.logo}`} alt="airline logo" height={45} width={45}/>
+                                    <img className="p-1 bg-antiFlashWhite/50 rounded-full" src={`${process.env.NEXT_PUBLIC_AH_SERVICE_URL}/${course.transportation_firm.logo}`} alt="airline logo" height={45} width={45}/>
                                     <span>{course.transportation_firm.name_fa || course.transportation_firm.name}</span>
                                 </div>
                                 <div className="flex flex-col items-center gap-2">
