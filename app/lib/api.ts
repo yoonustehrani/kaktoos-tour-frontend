@@ -5,7 +5,7 @@ class HttpApi {
     public client;
     constructor() {
         this.client = axios.create({
-            baseURL: 'http://tour-app/api'
+            baseURL: `${process.env.SERVICE_API}/api`
         })
     }
 }
