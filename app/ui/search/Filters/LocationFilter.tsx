@@ -4,7 +4,7 @@ import { COUNTRY, LOCATION, TOURS_COUNT_OBJECT } from "@/app/utils/types"
 import FilterBox from "../FilterBox"
 import Image from "next/image"
 import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'nextjs-toploader/app';
 
 type COUNTRY_OBJECT = (COUNTRY & TOURS_COUNT_OBJECT)
 

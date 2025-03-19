@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Footer from "./ui/footer/Footer";
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
 	title: {
@@ -19,6 +20,7 @@ export default function RootLayout({
 			<body
 				className={`subpixel-antialiased`}
 			>
+				<NextTopLoader color="#ffffff" />
 				{children}
 				<Footer />
 			</body>

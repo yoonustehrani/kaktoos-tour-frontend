@@ -3,7 +3,7 @@
 import { TOUR_META_NIGHT } from "@/app/utils/types";
 import FilterBox from "../FilterBox";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'nextjs-toploader/app';
 
 export default function NightsFilter({items}: {items: TOUR_META_NIGHT[]})
 {

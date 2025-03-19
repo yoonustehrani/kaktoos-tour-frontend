@@ -3,8 +3,9 @@
 import { COUNTRY, LOCATION, TOURS_COUNT_OBJECT } from "@/app/utils/types"
 import FilterBox from "../FilterBox"
 import Image from "next/image"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { usePathname,  useSearchParams } from "next/navigation"
 import { useDebouncedCallback } from 'use-debounce';
+import { useRouter } from 'nextjs-toploader/app';
 
 type Props = {
     items: (COUNTRY & TOURS_COUNT_OBJECT)[]
