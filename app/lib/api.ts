@@ -14,7 +14,7 @@ export type TOUR_SEARCH_PARAMS = {
     countries?: string[],
     origins?: number[],
     destinations?: number[],
-    nights?: number[]
+    nights?: number
 }
 
 export async function getTours(params: TOUR_SEARCH_PARAMS) {

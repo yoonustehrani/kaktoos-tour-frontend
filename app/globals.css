@@ -39,7 +39,20 @@ body {
 
 
 nav ul a {
-	@apply duration-300 px-3 py-1 text-emerald-900 hover:text-appleGreen dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic;
+	@apply duration-300 px-3 py-1 text-gray-500 hover:text-gray-900 relative; 
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -0.125rem;
+		right: 0.75rem;
+		width: 0%;
+		height: 2px;
+		@apply bg-gray-900 duration-300;
+	}
+	&:hover:after {
+		width: 25%;
+	}
+	/** dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic; **/
 }
 
 p {

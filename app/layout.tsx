@@ -20,7 +20,7 @@ export default function RootLayout({
 			<body
 				className={`subpixel-antialiased`}
 			>
-				<NextTopLoader color="#ffffff" />
+				<NextTopLoader color="#173F29" />
 				{children}
 				<Footer />
 			</body>

@@ -24,7 +24,7 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
             countries: getSearchParamAsArray(searchParams, 'countries'),
             origins: getSearchParamAsArray(searchParams, 'origins')?.map(x => Number(x)),
             destinations: getSearchParamAsArray(searchParams, 'destinations')?.map(x => Number(x)),
-            nights: getSearchParamAsArray(searchParams, 'nights')?.map(x => Number(x)),
+            nights: searchParams?.nights,
         })
     }, ['tours', JSON.stringify(searchParams)], { revalidate: 5, tags: ['tours'] })();
 

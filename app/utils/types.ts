@@ -106,6 +106,7 @@ export type TOURS_COUNT_OBJECT = { tours_count: number }
 
 export type SEARCH_TOUR_ROUTE_SEARCH_PARAMS = {
     'countries[]'?: string[];
+    nights?: number
     page?: string;
 }
 
