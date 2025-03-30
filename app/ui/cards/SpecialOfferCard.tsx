@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BaloonIcon, ConfettiIcon, GiftBoxIcon, GlitterIcon } from "./icons";
+import { BaloonIcon, ConfettiIcon, GiftBoxIcon, GlitterIcon } from "@/app/ui/header/icons";
 import Link from "next/link";
 
 export default function SpecialOfferCard()
