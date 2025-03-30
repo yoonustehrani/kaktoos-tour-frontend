@@ -30,10 +30,11 @@ export default function DestinationCardWithButton({name_fa, image, tours_count, 
                     <i className="fi fi-rs-arrow-left text-2xl h-6 text-gray-100"></i>
                 </Link>
             </div>
-            {/* <span style={{ 
-                boxShadow: '-5px 5px 0px 0px #0C3923'
-             }} className="z-20 absolute -bottom-1 left-20 -ml-2 h-8 w-6 rounded-bl-full bg-transparent">
-            </span> */}
+            <span style={{ 
+                boxShadow: '-5px 6px 1px 0px #0C3923'
+             }} className="z-20 absolute -bottom-0 left-20 -ml-[5px] h-7 w-6 rounded-bl-full">
+                
+            </span>
         </div>
     )
 }
