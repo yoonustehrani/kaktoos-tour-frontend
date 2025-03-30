@@ -64,15 +64,19 @@ export default function PopularDestinationsSection()
 {
     const [activatedCard, setActivatedCard] = useState(0);
     return (
-        <div className="w-4/5 flex flex-row-reverse gap-4">
-            {cards.map((c, i) => (
-                <ExpandableCard 
-                    handleClick={() => setActivatedCard(x => i)}
-                    key={i} 
-                    active={i == activatedCard}
-                    data={c}
-                />
-            ))}
-        </div>
+        <section className="w-full bg-antiFlashWhit flex flex-col items-center gap-2 py-6 px-3">
+            <h3 className="text-gray-900 font-bold text-4xl">مقصدهای پیشنهادی</h3>
+            <p className="mb-8 text-gray-500">مقصدهای متناسب سلیقه مسافران کاکتوس</p>
+            <div className="w-4/5 flex flex-row-reverse gap-4">
+                {cards.map((c, i) => (
+                    <ExpandableCard 
+                        handleClick={() => setActivatedCard(x => i)}
+                        key={i} 
+                        active={i == activatedCard}
+                        data={c}
+                    />
+                ))}
+            </div>
+        </section>
     )
 }
