@@ -18,7 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="fa" dir="rtl">
 			<body
-				className={`subpixel-antialiased`}
+				className={`subpixel-antialiased overflow-x-hidden`}
 			>
 				<NextTopLoader color="#173F29" />
 				{children}

@@ -25,7 +25,7 @@ export default function DestinationCardWithButton({name_fa, image, tours_count, 
                 boxShadow: '-4px 4px 0px 3px #0C3923'
              }} className="z-20 absolute bottom-14 -left-0 h-6 w-4 rounded-bl-full bg-transparent">
             </span>
-            <div className="z-30 absolute bottom-0 -left-0 h-14 w-20 rounded-tr-full bg-[#0C3923] flex items-end justify-center pr-3">
+            <div className="z-30 absolute bottom-0 -left-0 h-14 w-20 rounded-tr-full bg-websiteGreen flex items-end justify-center pr-3">
                 <Link href={`/tours`} className="p-2 rounded-full bg-transparent border-2 border-gray-100 flex items-center justify-center">
                     <i className="fi fi-rs-arrow-left text-2xl h-6 text-gray-100"></i>
                 </Link>

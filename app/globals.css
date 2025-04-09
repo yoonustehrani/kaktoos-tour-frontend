@@ -160,3 +160,11 @@ input:hover, input:focus, input:active {
 hr {
 	@apply dark:border-gray-600 w-full;
 }
+
+.form-input {
+	@apply border border-black/10 py-2 rounded-lg focus:border-gray-700 text-gray-800 outline-none focus-visible:outline-none focus:outline-none;
+}
+
+.form-input[aria-invalid="true"] {
+	@apply border-red-500 !important;
+}
