@@ -13,6 +13,7 @@ export default {
 				foreground: "var(--foreground)",
 				websiteGreen: "#0C3923",
 				websiteOrange: "#FF6800",
+				websiteLightGreen: "#61BC67",
 				beige: "#f9ffe9",
 				eerieBlack: "#212121",
 				raisinBlack: {

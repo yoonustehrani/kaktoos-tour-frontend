@@ -11,7 +11,7 @@ const getFormattedDate = (date: string, format: string = 'jD jMMMM') => (
 const staticClassNames = 'rounded-md p-3 border-2 flex flex-col-reverse lg:flex-row gap-3 items-center justify-center text-sm lg:text-base'
 
 function Div(props: PropsWithChildren) {
-    return <div className={`${staticClassNames} text-white bg-dark-moss-green border-dark-moss-green dark:bg-transparent dark:text-blue-500 dark:border-darkBlue-marian-light`}>{props.children}</div>
+    return <div className={`${staticClassNames} text-black bg-websiteLightGreen border-websiteLightGreen dark:bg-transparent dark:text-blue-500 dark:border-darkBlue-marian-light`}>{props.children}</div>
 }
 
 interface DatePillProps {date: TOUR_DATE, is_current: boolean, is_cheapest: boolean, is_most_expensive: boolean}
@@ -21,7 +21,7 @@ function DatePill(
 ) {
     const Comp = is_current ? Div : Link;
     return (
-        <Comp href={`?date=${date.id}`} className={`${staticClassNames} text-gray-700 hover:text-white hover:bg-dark-moss-green hover:border-dark-moss-green dark:hover:bg-transparent dark:text-gray-400 dark:border-gray-500 hover:dark:border-darkBlue-marian-light`}>                 
+        <Comp href={`?date=${date.id}`} className={`${staticClassNames} text-gray-700 hover:text-white hover:bg-websiteLightGreen hover:border-websiteLightGreen dark:hover:bg-transparent dark:text-gray-400 dark:border-gray-500 hover:dark:border-darkBlue-marian-light`}>                 
             <div className="flex gap-3 items-center justify-center lg:justify-start w-full md:w-auto">
                 <div className="flex gap-2 items-center">
                     <span className="hidden md:fi h-7 fi-rs-hourglass-start"></span>

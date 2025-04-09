@@ -2,26 +2,22 @@ import { TOUR_RESULT } from "@/app/utils/types"
 import Image from "next/image"
 import Link from "next/link"
 import TourCardButton from "./TourCardButton";
-import { convertToJalali, farsiNumber, getJMoment } from "@/app/utils";
+import { convertToJalali, farsiNumber, getJMoment, getTourHref } from "@/app/utils";
 import TourDatesCloseButton from "./TourDatesCloseButton";
 
 type Props = {
     tours: TOUR_RESULT[]
 }
 
-function getTourHref(tour: TOUR_RESULT) {
-    return `/tours/${tour.id}/${tour.slug}`
-}
-
 export default function Tours({tours}: Props)
 {
     return (
-        <section className="dark:bg-darkBlue-oxford rounded-lg p-4 w-full md:grow bg-gray-100 border border-black/10 dark:border-none shadow-md">
+        <section className="dark:bg-darkBlue-oxford rounded-lg p-4 w-full md:grow bg-white border border-black/10 dark:border-none shadow-sm">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                 {tours.map(tour => {
                     let countries = [...new Set(tour.destinations.map(x => x.country_code))]
                     return (
-                        <article key={tour.id} className={`dark:bg-gray-900 bg-white border border-black/10 overflow-hidden rounded-md shadow-lg flex flex-col gap-4`}>
+                        <article key={tour.id} className={`dark:bg-gray-900 bg-white border border-black/10 overflow-hidden rounded-md shadow-sm flex flex-col gap-4`}>
                             <div className="w-full relative">
                                 <div className="relative h-fit">
                                     <Image className="w-full h-auto" width={300} height={300} alt="" src={`/images/tour-${tour.destinations[0].country_code.toLowerCase()}.jpg`}/>
@@ -78,8 +74,12 @@ export default function Tours({tours}: Props)
                                         farsiNumber(tour.dates.find(x => x.min_adult_price === tour.min_adult_price).min_adult_price_display)    
                                     }</p>
                                 </div>
-                                <div className="flex justify-end">
-                                    <Link href={getTourHref(tour)} className="dark:bg-gray-800 bg-gray-800 text-antiFlashWhite shadow-md px-3 py-2 rounded-md flex items-center gap-2 dark:shadow-md">مشاهده <i className="h-5 fi fi-rs-eye"></i></Link>
+                                <div className="flex justify-center">
+                                    <Link className="px-3 duration-300 py-1 text-white bg-gray-700 rounded-full flex items-center gap-1 font-semibold" href={getTourHref(tour)}>
+                                        <span className="text-lg h-4 fi fi-rs-eye"></span>
+                                        مشاهده
+                                    </Link>
+                                    {/* <Link  className="dark:bg-gray-800 text-gray-700 shadow-sm px-3 py-2 rounded-md flex items-center gap-2 dark:shadow-md">مشاهده <i className="h-5 fi fi-rs-eye"></i></Link> */}
                                 </div>
                             </div>
                         </article>
