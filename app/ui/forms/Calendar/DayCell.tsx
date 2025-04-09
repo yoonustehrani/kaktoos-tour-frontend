@@ -9,7 +9,8 @@ export default function DayCell({
     onClick,
     disabled,
     isSelected,
-    mode
+    mode,
+    data = null
 }: {
     day: number | null
     isToday: boolean
@@ -18,11 +19,13 @@ export default function DayCell({
     isSelected: boolean,
     onClick: MouseEventHandler<HTMLButtonElement>
     mode: CALENDAR_MODE
+    data?: string | number | null
 }) {
     return (
         <td className="pt-6 px-2">
             {day && (
-                <div className={`flex w-full justify-center pb-1 items-center ${isToday ? 'border-b-2 border-gray-500 dark:border-gray-100' : ''}`}>
+                <div className={`flex w-full justify-center pb-1 relative items-center ${isToday ? 'border-b-2 border-gray-500 dark:border-gray-100' : ''}`}>
+                    {data && (<span className="text-xs absolute bg-websiteOrange text-white size-6 flex items-center justify-center rounded-full -top-3 -left-3">{data}</span>)}
                     {isSelected || isEndDay  ? ( // || isRangeStartDay(day)
                         <span 
                         className={`

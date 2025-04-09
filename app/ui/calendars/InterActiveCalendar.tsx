@@ -1,16 +1,29 @@
+'use client';
+
 import { farsiNumber, getCalendar, getJalaliMonthNames, getJMoment } from "@/app/utils";
 import DayCell from "../forms/Calendar/DayCell"
 import TableHead from "../forms/Calendar/TableHead"
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { DATE_ARRAY } from "../forms/Calendar/types";
 import MoveButtons from "../forms/Calendar/MoveButtons";
 
-export default function InterActiveCalendar() {
+export default function InterActiveCalendar({
+    afterSelect
+}: {
+    afterSelect: (date: string) => any
+}) {
     const now = useMemo(() => getJMoment()(), []);
     const [year, setYear] = useState<number>(now.jYear())
     const [month, setMonth] = useState<number>(now.jMonth() + 1)
     const [selectedDate, setSelectedDate] = useState<DATE_ARRAY>()
     // const [endDate, setEndDate] = useState<DATE_ARRAY>()
+
+    useEffect(() => {
+        if (selectedDate) {
+            let [year, month, day] = selectedDate;
+            afterSelect(getJMoment()(`${year}/${month}/${day}`, 'jYYYY/jM/jD').format('YYYY-MM-DD'))
+        }
+    }, [selectedDate])
 
     const isEndDay = (day: number) => {
         // if (!endDate) return false
@@ -91,9 +104,12 @@ export default function InterActiveCalendar() {
                                                 disabled={!!(day && isDateUnavailable(day))}
                                                 isSelected={!!(day && isSelectedDate(day))}
                                                 isEndDay={!!(day && isEndDay(day))}
-                                                onClick={() => {}}
+                                                onClick={() => {
+                                                    day && setSelectedDate([year, month, day])
+                                                }}
                                                 day={day}
                                                 mode={"SINGLE"}
+                                                data={day === 28 ? farsiNumber(10) : undefined}
                                             />
                                         ))}
                                     </tr>
