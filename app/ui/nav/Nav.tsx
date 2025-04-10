@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import Image from "next/image";
+import HasSubMenu from "./HasSubMenu";
 
 export default function({
     className = ''
@@ -24,14 +25,12 @@ export default function({
                 <span>کاکتوس سیر</span>
             </Link>
             <ul className="hidden md:flex grow gap-4 h-full items-center justify-center text-xl font-semibold">
-                <li>
-                    <Link href="/">تور خارجی</Link>
-                </li>
+                <HasSubMenu title="تور خارجی"/>
                 <li>
                     <Link href="/">تور داخلی</Link>
                 </li>
                 <li>
-                    <Link href="/">مجله توریسم</Link>
+                    <Link href="https://kaktoosseir.com/mag">مجله توریسم</Link>
                 </li>
                 <li>
                     <Link href="/contact">تماس با ما</Link>
