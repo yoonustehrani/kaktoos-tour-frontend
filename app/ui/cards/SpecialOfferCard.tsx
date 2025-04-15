@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function SpecialOfferCard()
 {
     return (
-        <div className="py-6 px-5 w-fit rounded-2xl shadow-md bg-white border border-black/10 h-fit absolute -top-12 right-full -mr-12 flex flex-col gap-4">
+        <div className="py-5 px-3 w-fit rounded-2xl shadow-md bg-white border border-black/10 h-fit absolute -top-12 right-full -mr-12 flex flex-col gap-4">
             <div className="w-full flex gap-2 items-center">
                 <div>
                     {/* <GlitterIcon height={40} width={40}/> */}

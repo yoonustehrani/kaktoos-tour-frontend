@@ -5,13 +5,14 @@ import MainHeader from "./ui/header/MainHeader";
 import Image from "next/image";
 import Link from "next/link";
 import ToursOnCalendarSection from "./ui/sections/ToursOnCalendarSection";
+import StoriesSection from "./ui/sections/StoriesSection";
 
 export default function Home() {
     return (
         <>
             <MainHeader />
             <section className="bg-websiteGreen w-full px-3 flex flex-wrap justify-center gap-y-12 pb-12">
-                <NewTourSearchForm />
+                <StoriesSection />
                 <SuggestedDestinationsSection />
             </section>
             <PopularDestinationsSection />

@@ -1,0 +1,3 @@
+progress[value] {-webkit-appearance: none;}
+progress[value]::-webkit-progress-value {background-color: #fff;}
+progress::-moz-progress-bar {background-color: #999 !important;}
