@@ -17,7 +17,7 @@ type Story = {
 
 function Story({story, activate}: {story: Story, activate: (story: Story) => void}) {
     return (
-        <li className="flex flex-col items-center space-y-2 relative" onClick={() => activate(story)}>
+        <li className="flex flex-col items-center space-y-2 relative cursor-pointer" onClick={() => activate(story)}>
             <div className="bg-gradient-to-tr from-yellow-500 to-pink-600 rounded-full p-1">
                 <div className="block bg-white p-1 rounded-full transform transition hover:rotate-12 duration-300">
                     <Image loading="lazy" className="size-20 rounded-full" width={100} height={100} src={`/images/stories/${story.image}`}  alt="image" />
@@ -112,8 +112,8 @@ export default function StoriesSection()
     }, [activeStory])
 
     return (
-        <section className="w-4/5 bg-gray-100 border border-black/10 shadow-lg rounded-full -mt-14 px-8 pt-2 pb-5 z-20">
-            <ul className="md:flex items-center justify-center gap-4">
+        <section className="w-full overflow-x-auto md:overflow-hidden md:w-4/5 bg-gray-100 border border-black/10 shadow-lg md:rounded-full -mt-14 px-8 pt-2 pb-5 z-20">
+            <ul className="flex w-max md:w-full items-center justify-center gap-4">
                 {mock_stories.map((props, i) => (
                     <Story activate={story => setActiveStory(story)} story={props} key={i}/>
                 ))}

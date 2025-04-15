@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <>
             <MainHeader />
-            <section className="bg-websiteGreen w-full px-3 flex flex-wrap justify-center gap-y-12 pb-12">
+            <section className="bg-websiteGreen w-full md:px-3 flex flex-wrap justify-center gap-y-12 pb-12">
                 <StoriesSection />
                 <SuggestedDestinationsSection />
             </section>

@@ -7,8 +7,8 @@ import SelectOriginField from "./components/Fields/SelectOriginField";
 export default function() {
     const {submitForm, setFieldValue} = useFormikContext()
     return (
-        <div className="w-max h-40 bg-gray-50 border border-black/5 shadow-md rounded-2xl z-20">
-            <div className="w-full h-full py-3 px-3 flex justify-start gap-2">
+        <div className="w-max md:h-40 bg-gray-50 border border-black/5 shadow-md rounded-2xl z-20">
+            <div className="w-full h-full py-3 px-3 flex flex-wrap md:flex-nowrap justify-start gap-2">
                 <SelectOriginField />
                 <SelectDestinationsField />
                 <PickDatesField setFieldValue={setFieldValue}/>

@@ -17,9 +17,12 @@ export default function MainHeader()
             
             className="relative bg-contain bg-center flex flex-col-reverse md:flex-row justify-center items-top gap-12 md:gap-3 xl:gap-40 w-full px-3 xl:px-6 py-6 mb-4 mt-4">
                 <div className="md:w-1/2 bg-transparent px-3 xl:px-6 flex flex-col justify-around gap-4 text-gray-800 dark:text-gray-300">
-                    <div>
-                        <h1 className="text-8xl mb-6 w-full text-center md:w-fit font-extrabold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
-                        <h2 className="text-4xl w-full break-keep text-nowrap">کاکتوس، مجری تخصصی تورهای داخلی و خارجی</h2>
+                    <div className="w-fit">
+                        <div className="flex items-center justify-between h-fit">
+                            <Image className="h-14 md:h-28 w-auto" width={80} height={80} src={`/passport.svg`} alt=""/>
+                            <h1 className="text-4xl md:text-8xl w-full text-center md:w-fit font-extrabold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
+                        </div>
+                        <h2 className="text-2xl mt-6 text-center w-fit md:break-keep md:text-nowrap">کاکتوس، مجری تخصصی تورهای داخلی و خارجی</h2>
                     </div>
                     {/* <p className="text-lg text-justify">با سال‌ها تجربه در صنعت گردشگری، بهترین و متنوع‌ترین تورها را به مقاصد محبوب داخلی و خارجی ارائه می‌دهیم. تورهای کاکتوس با برنامه‌ریزی حرفه‌ای، <em className="underlined">خدمات باکیفیت و قیمت‌های رقابتی</em> <span aria-label="Money bag">💰</span>، سفری به‌یادماندنی را برای شما رقم می‌زند.</p> */}
                     {/* <p className="text-lg font-semibold text-right flex items-center gap-2"><span className="inline-block w-5 h-5 rounded-full bg-black"></span> برای اطلاع از آخرین تورها و تخفیف‌های ویژه، از گزینه های زیر استفاده کنید:</p> */}
@@ -35,9 +38,9 @@ export default function MainHeader()
                     </div> */}
                     <NewTourSearchForm />
                 </div>
-                <div className="w-full md:w-1/2 h-64 sm:h-72 md:h-[30rem] flex items-end justify-center">
+                <div className="w-full hidden md:flex md:w-1/2 h-64 sm:h-72 md:h-[30rem] items-end justify-center">
                     <div className="w-full h-full relative flex justify-start items-end">
-                        <div className="w-auto h-full relative bg-websiteGreen/80 rounded-t-full">
+                        <div className="w-auto h-full relative bg-white/60 rounded-t-full">
                             <img src="/images/traveller.webp" alt="" className="h-full pt-6 px-10 w-auto border-b-2 border-green-900" />
                             {/* <Image
                                 src={`/images/traveller.webp`} // Default light mode image
