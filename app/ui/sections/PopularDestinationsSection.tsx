@@ -16,12 +16,12 @@ function ExpandableCard({active, handleClick, data}: {active: boolean, handleCli
                 backgroundImage: `url('/images/cards/${data.image}.webp')`
             }}
             onClick={handleClick} 
-            className={`w-1/6 h-[40rem] duration-1000 rounded-3xl overflow-hidden bg-top bg-cover ${active ? 'grow' : 'grow-0 cursor-pointer'}`}
+            className={`w-full md:w-1/6 duration-1000 rounded-3xl overflow-hidden bg-center md:bg-top bg-cover ${active ? 'grow h-96' : 'grow-0 h-24 cursor-pointer'} md:h-[40rem]`}
         >
             <div className="w-full h-full bg-black/50 p-5 flex items-end">
-                <div className={`h-fit w-full ${active ? 'flex' : ''} items-center justify-between text-antiFlashWhite relative`}>
-                    <div className={`${active ? '' : 'rotate-90 -mb-9 mr-12 origin-right'} relative duration-1000 flex flex-col gap-2`}>
-                        <h4 className="font-semibold text-3xl">تور {data.title}</h4>
+                <div className={`w-full ${active ? 'flex h-fit' : 'h-full md:h-fit'} items-center justify-between text-antiFlashWhite relative`}>
+                    <div className={`${active ? '' : 'md:rotate-90 md:-mb-9 md:mr-12 origin-right'} relative duration-1000 flex flex-col md:gap-2`}>
+                        <h4 className="font-semibold text-lg md:text-3xl">تور {data.title}</h4>
                         <p>{data.tours_count} مورد تور</p>
                     </div>
                     {active && (
@@ -67,7 +67,7 @@ export default function PopularDestinationsSection()
         <section className="w-full bg-antiFlashWhit flex flex-col items-center gap-2 py-6 px-3">
             <h3 className="text-gray-900 font-bold text-4xl">مقصدهای پیشنهادی</h3>
             <p className="mb-8 text-gray-500">مقصدهای متناسب سلیقه مسافران کاکتوس</p>
-            <div className="w-4/5 flex flex-row-reverse gap-4">
+            <div className="w-full md:w-4/5 flex flex-col md:flex-row-reverse gap-4">
                 {cards.map((c, i) => (
                     <ExpandableCard 
                         handleClick={() => setActivatedCard(x => i)}
