@@ -48,7 +48,7 @@ export default function InterActiveCalendar({
     }, [year, month])
 
     return (
-        <div className="flex items-center justify-center py-8 px-4 w-fit">
+        <div className="flex items-center justify-center pt-4 md:py-8 px-4 w-fit">
             <div className="max-w-sm md:max-w-md w-full">
                 <div className="md:p-8 p-5 dark:bg-gray-800 bg-white rounded-3xl shadow-md border border-black/10">
                     <div className="px-4 flex flex-row items-center justify-between">

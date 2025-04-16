@@ -48,7 +48,7 @@ export default function SelectOriginField()
         <Field>
             <IconSquare onClick={() => modalRef.current?.showModal()} iconClassName="fi-rs-marker">
                 {!state && (
-                    <span className="text-lg">انتخاب مبدا</span>
+                    <span className="md:text-lg text-right">انتخاب مبدا</span>
                 )}
                 {state && (
                     <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ export default function SelectOriginField()
                     </div>
                 )}
             </IconSquare>
-            <h4 className="text-xl font-semibold">مبدا تور</h4>
+            <h4 className="text-lg md:text-xl font-semibold">مبدا تور</h4>
             <ModalForm modalRef={modalRef} title="یک مبدا انتخاب کنید." iconClass="fi-rs-marker">
                 <SearchInput loading={isPending} value={searchTerm} changeHandler={handleSearchInputChange} placeHolder='مبدا را جستجو کنید' />
                 <p className="h-4 text-sm text-red-500">{isError && error?.response?.data.message}</p>

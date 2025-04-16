@@ -55,7 +55,7 @@ export default function PickDatesField({
         <Field>
             <IconSquare onClick={() => modalRef.current?.showModal()} iconClassName="fi-rs-calendar">
                 {noDatePicked ? (
-                    <span className="text-lg">انتخاب تاریخ</span>
+                    <span className="md:text-lg text-right">انتخاب تاریخ</span>
                 ): (
                     state.end_date == null ? (
                         <span className="text-justify">
@@ -67,7 +67,7 @@ export default function PickDatesField({
                     )
                 )}
             </IconSquare>
-            <h4 className="text-xl font-semibold">تاریخ رفت و برگشت</h4>
+            <h4 className="text-lg md:text-xl font-semibold">تاریخ رفت و برگشت</h4>
             <Modal ref={modalRef}>
                 <Calendar range={true} handlePick={(startDate, endDate) => {
                     addStartDate(startDate || null)

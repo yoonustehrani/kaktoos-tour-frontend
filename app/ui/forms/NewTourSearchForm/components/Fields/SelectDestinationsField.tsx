@@ -82,7 +82,7 @@ export default function SelectDestinationsField()
         <Field>
             <IconSquare onClick={() => modalRef.current?.showModal()} iconClassName="fi-rs-route">
                 {state.length === 0 && (
-                    <span className="text-lg">انتخاب مقصد<span className="text-sm px-1">(ها)</span></span>
+                    <span className="md:text-lg text-right">انتخاب مقصد<span className="text-sm px-1 hidden md:inline-block">(ها)</span></span>
                 )}
                 {state.length === 1 && (
                     <div className="flex items-center gap-3">
@@ -100,10 +100,10 @@ export default function SelectDestinationsField()
                     </div>
                 )}
                 {state.length > 1 && (
-                    <span className="text-lg">{state.length} مقصد</span>
+                    <span className="md:text-lg text-right">{state.length} مقصد</span>
                 )}
             </IconSquare>
-            <h4 className="text-xl font-semibold">مقصد تور</h4>
+            <h4 className="text-lg md:text-xl font-semibold">مقصد تور</h4>
             <ModalForm modalRef={modalRef} title="مقاصد موردنظر را انتخاب کنید." iconClass="fi-rs-route">
                 <SearchInput loading={isPending} value={searchTerm} changeHandler={handleSearchInputChange} placeHolder="یک شهر را جستجو کنید" />
                 <p className="h-4 text-sm text-red-500">{isError && error?.response?.data.message}</p>

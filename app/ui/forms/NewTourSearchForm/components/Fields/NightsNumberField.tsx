@@ -30,7 +30,7 @@ export default function NightsNumberField()
     return (
         <Field>
             <div className="flex items-center gap-2 w-fit">
-                <span className="bg-white shadow-md rounded-xl w-10 h-10 p-3 text-xl flex items-center justify-center">
+                <span className="bg-white shadow-md rounded-xl size-9 md:size-10 p-3 text-lg md:text-xl flex items-center justify-center">
                     <i className={`h-5 fi fi-rs-moon`}></i>
                 </span>
                 <div className="flex items-center text-2xl gap-3">
@@ -39,7 +39,7 @@ export default function NightsNumberField()
                     <button onClick={decrease} className="flex items-center justify-center size-5 bg-white rounded-full">-</button>
                 </div>
             </div>
-            <h4 className="text-xl font-semibold">مدت اقامت</h4>
+            <h4 className="text-lg md:text-xl font-semibold">مدت اقامت</h4>
         </Field>
     )
 }
