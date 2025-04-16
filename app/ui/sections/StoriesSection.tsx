@@ -112,7 +112,7 @@ export default function StoriesSection()
     }, [activeStory])
 
     return (
-        <section className="w-full overflow-x-auto md:overflow-hidden md:w-4/5 bg-gray-100 border border-black/10 shadow-lg md:rounded-full -mt-14 px-8 pt-2 pb-5 z-20">
+        <section className="w-full overflow-x-auto md:overflow-hidden md:w-4/5 bg-gray-100 border border-black/10 shadow-lg md:rounded-full -mt-6 md:-mt-14 px-8 pt-2 pb-5 z-20">
             <ul className="flex w-max md:w-full items-center justify-center gap-4">
                 {mock_stories.map((props, i) => (
                     <Story activate={story => setActiveStory(story)} story={props} key={i}/>

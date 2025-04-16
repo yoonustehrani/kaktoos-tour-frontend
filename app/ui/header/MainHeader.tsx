@@ -18,9 +18,9 @@ export default function MainHeader()
             className="relative bg-contain bg-center flex flex-col-reverse md:flex-row justify-center items-top gap-12 md:gap-3 xl:gap-40 w-full md:px-3 xl:px-6 py-6 mb-4 mt-4">
                 <div className="w-full md:w-1/2 px-3 xl:px-6 flex flex-col justify-around gap-4 text-gray-800 dark:text-gray-300">
                     <div className="w-fit">
-                        <div className="flex items-center justify-between h-fit">
+                        <div className="flex items-center justify-center gap-3 md:gap-0 md:justify-between h-fit">
                             <Image className="h-14 md:h-28 w-auto" width={80} height={80} src={`/passport.svg`} alt=""/>
-                            <h1 className="text-4xl md:text-8xl w-full text-center md:w-fit font-extrabold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
+                            <h1 className="text-4xl md:text-8xl text-center md:w-fit font-extrabold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
                         </div>
                         <h2 className="text-2xl md:text-4xl mt-6 text-center w-fit md:break-keep md:text-nowrap">کاکتوس، مجری تخصصی تورهای داخلی و خارجی</h2>
                     </div>
