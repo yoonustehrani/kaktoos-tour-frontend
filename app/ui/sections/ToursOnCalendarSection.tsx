@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import InterActiveCalendar from "../calendars/InterActiveCalendar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getJalaliMomentOf } from "@/app/utils";
 
 export type Tour = {
@@ -25,6 +25,7 @@ const example: Tour = {
 export default function ToursOnCalendarSection() {
     const [tours, setTours] = useState<Tour[]>([])
     const [selectedDate, setSelectedDate] = useState<string>()
+    const toursListRef = useRef<HTMLDivElement>(null)
     function loadTours(date: string) {
         let data = []
         for (let i = 0; i < Math.floor(Math.random() * 10) + 1; i++) {
@@ -36,6 +37,9 @@ export default function ToursOnCalendarSection() {
 
     useEffect(() => {
         if (selectedDate) {
+            setTimeout(() => {
+                toursListRef.current?.scrollIntoView({behavior: 'smooth', block: 'nearest'})
+            }, 500);
             loadTours(selectedDate)
         }
     }, [selectedDate])
@@ -48,7 +52,7 @@ export default function ToursOnCalendarSection() {
                 <div className="md:w-1/2 flex justify-center md:justify-end">
                     <InterActiveCalendar afterSelect={(date) => setSelectedDate(date)}/>
                 </div>
-                <div className="w-full flex flex-col items-center md:items-start gap-10 justify-center md:justify-start md:w-1/2 md:py-10">
+                <div ref={toursListRef} className="w-full flex flex-col items-center md:items-start gap-10 justify-center md:justify-start md:w-1/2 md:py-10">
                     {selectedDate && (
                         <p className="text-2xl font-semibold flex gap-2 items-center justify-center">
                             <i className="fi fi-rs-calendar size-7"></i>
