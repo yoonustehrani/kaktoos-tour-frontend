@@ -22,7 +22,7 @@ export default function MainHeader()
                             <Image className="h-14 md:h-28 w-auto" width={80} height={80} src={`/passport.svg`} alt=""/>
                             <h1 className="text-4xl md:text-8xl w-full text-center md:w-fit font-extrabold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
                         </div>
-                        <h2 className="text-2xl mt-6 text-center w-fit md:break-keep md:text-nowrap">کاکتوس، مجری تخصصی تورهای داخلی و خارجی</h2>
+                        <h2 className="text-2xl md:text-4xl mt-6 text-center w-fit md:break-keep md:text-nowrap">کاکتوس، مجری تخصصی تورهای داخلی و خارجی</h2>
                     </div>
                     {/* <p className="text-lg text-justify">با سال‌ها تجربه در صنعت گردشگری، بهترین و متنوع‌ترین تورها را به مقاصد محبوب داخلی و خارجی ارائه می‌دهیم. تورهای کاکتوس با برنامه‌ریزی حرفه‌ای، <em className="underlined">خدمات باکیفیت و قیمت‌های رقابتی</em> <span aria-label="Money bag">💰</span>، سفری به‌یادماندنی را برای شما رقم می‌زند.</p> */}
                     {/* <p className="text-lg font-semibold text-right flex items-center gap-2"><span className="inline-block w-5 h-5 rounded-full bg-black"></span> برای اطلاع از آخرین تورها و تخفیف‌های ویژه، از گزینه های زیر استفاده کنید:</p> */}

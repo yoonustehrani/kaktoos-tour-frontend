@@ -27,13 +27,13 @@ export default function({
             <ul className="hidden md:flex grow gap-4 h-full items-center justify-center text-xl font-semibold">
                 <HasSubMenu title="تور خارجی"/>
                 <li>
-                    <Link href="/">تور داخلی</Link>
+                    <Link className="under" href="/">تور داخلی</Link>
                 </li>
                 <li>
-                    <Link href="https://kaktoosseir.com/mag">مجله توریسم</Link>
+                    <Link className="under" href="https://kaktoosseir.com/mag">مجله توریسم</Link>
                 </li>
                 <li>
-                    <Link href="/contact">تماس با ما</Link>
+                    <Link className="under" href="/contact">تماس با ما</Link>
                 </li>
             </ul>
         </nav>

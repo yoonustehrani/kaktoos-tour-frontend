@@ -40,6 +40,10 @@ body {
 
 nav ul a {
 	@apply duration-300 px-3 py-1 text-gray-500 hover:text-gray-900 relative; 
+	/** dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic; **/
+}
+
+nav ul a.under {
 	&:after {
 		content: '';
 		position: absolute;
@@ -52,7 +56,6 @@ nav ul a {
 	&:hover:after {
 		width: 25%;
 	}
-	/** dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic; **/
 }
 
 p {
