@@ -11,10 +11,10 @@ export default function Home() {
     return (
         <>
             <MainHeader />
-            <section className="bg-websiteGreen w-full md:px-3 flex flex-wrap justify-center gap-y-12 pb-12">
+            {/* <section className="bg-websiteGreen w-full md:px-3 flex flex-wrap justify-center gap-y-12 pb-12">
                 <StoriesSection />
                 <SuggestedDestinationsSection />
-            </section>
+            </section> */}
             <PopularDestinationsSection />
             <section className="bg-websiteGreen w-full px-4 h-96 my-10 flex flex-col items-center gap-3 py-8">
                 <h3 className="text-white font-bold text-4xl">دسته بندی تورها</h3>

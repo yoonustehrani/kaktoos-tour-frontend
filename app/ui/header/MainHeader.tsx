@@ -7,7 +7,7 @@ import NewTourSearchForm from "../forms/NewTourSearchForm/NewTourSearchForm";
 export default function MainHeader()
 {
     return (
-        <header className="w-full px-8 py-2 bg-antiFlashWhite">
+        <header className="w-full px-2 md:px-8 py-2 bg-antiFlashWhite">
             <Nav />
             <section 
             
@@ -15,8 +15,8 @@ export default function MainHeader()
                 backgroundImage: `url('/world-map.svg')`,
              }}
             
-            className="relative bg-contain bg-center flex flex-col-reverse md:flex-row justify-center items-top gap-12 md:gap-3 xl:gap-40 w-full px-3 xl:px-6 py-6 mb-4 mt-4">
-                <div className="md:w-1/2 bg-transparent px-3 xl:px-6 flex flex-col justify-around gap-4 text-gray-800 dark:text-gray-300">
+            className="relative bg-contain bg-center flex flex-col-reverse md:flex-row justify-center items-top gap-12 md:gap-3 xl:gap-40 w-full md:px-3 xl:px-6 py-6 mb-4 mt-4">
+                <div className="w-full md:w-1/2 px-3 xl:px-6 flex flex-col justify-around gap-4 text-gray-800 dark:text-gray-300">
                     <div className="w-fit">
                         <div className="flex items-center justify-between h-fit">
                             <Image className="h-14 md:h-28 w-auto" width={80} height={80} src={`/passport.svg`} alt=""/>
