@@ -46,7 +46,7 @@ export default function ContactPage()
                     backgroundImage: `url('/images/contact-us-form-background.webp')`
                  }} className="w-full bg-fixed bg-no-repeat bg-cover bg-center">
                     <div className="w-full h-fit bg-black/60 flex justify-center items-center px-3 py-16 mt-6 md:mt-16">
-                        <div className="w-4/5 h-full flex justify-end">
+                        <div className="w-full md:w-4/5 h-full flex justify-end">
                             <ContactForm />
                         </div>
                     </div>
