@@ -226,3 +226,12 @@ export interface TOUR_PAGE_RESULT extends TOUR {
         order: number
     })[]
 }
+
+export type Category = {
+    id: number;
+    slug: string;
+    title: string;
+    classification_id: number;
+    image_src: string|null;
+    icon_class: string|null;
+}

@@ -1,0 +1,9 @@
+services:
+  website:
+    image: yoonustehrani/kaktoos-tour-backend:latest
+    networks:
+      - kaktoos-tour-network
+
+networks:
+  kaktoos-tour-network:
+    external: true

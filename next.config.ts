@@ -10,15 +10,22 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'api.kaktoos.example',
-        port: '',
-        pathname: '/storage/**',
-        search: '',
-      },
-    ],
+    // remotePatterns: [
+    //   {
+    //     protocol: 'http',
+    //     hostname: 'localhost',
+    //     port: '8000',
+    //     pathname: '/storage/**',
+    //     search: '',
+    //   },
+    //   {
+    //     protocol: 'http',
+    //     hostname: 'host.docker.internal',
+    //     port: '8000',
+    //     pathname: '/storage/**',
+    //     search: '',
+    //   },
+    // ],
   }
 };
 
