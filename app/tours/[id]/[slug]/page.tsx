@@ -45,10 +45,10 @@ export default async function Page({params, searchParams}: PageProps) {
 
     return (
         <>
-            <header className="w-full bg-beige border-b border-black/10 dark:bg-darkBlue-oxford flex flex-col">
+            <header className="w-full px-8 py-2 bg-antiFlashWhite">
                 <Nav />
             </header>
-            <main className="dark:bg-gray-900 bg-beige flex flex-wrap gap-x-8 gap-y-8 py-12 px-3 lg:px-8 w-full overflow-hidden">
+            <main className="dark:bg-gray-900 bg-white flex flex-wrap gap-x-8 gap-y-8 py-12 px-3 lg:px-8 w-full overflow-hidden">
                 <BreadCrumbs links={links}/>
                 <div className="flex items-center gap-3 w-full">
                     <div className="flex items-center">
@@ -65,15 +65,6 @@ export default async function Page({params, searchParams}: PageProps) {
                         <DatesNav dates={tour.dates} currentDateId={currentDate.id}/>
                     </aside>
                     <section className="grow">
-                        <section className="w-full p-3 mt-4">
-                            <h3 className="mb-5 font-bold text-2xl flex flex-wrap items-center gap-3">
-                                <span className="fi fi-rs-route"></span>
-                                <span>برنامه سفر</span>
-                            </h3>
-                            <Suspense fallback={`loading ...`}>
-                                <JourneyCourse destinations={tour.destinations} tourId={tour.id} dateId={currentDate.id}/>
-                            </Suspense>
-                        </section>
                         <h3 className="my-5 font-bold text-2xl flex flex-wrap items-center gap-3">
                             <span>💰</span>
                             <span>شروع قیمت این تاریخ</span>
@@ -84,6 +75,15 @@ export default async function Page({params, searchParams}: PageProps) {
                                 <PricingListContainer key={pl.id} destinations={tour.destinations} pricingList={pl}/>
                             ))}
                         </div>
+                        <section className="w-full p-3 mt-4">
+                            <h3 className="mb-5 font-bold text-2xl flex flex-wrap items-center gap-3">
+                                <span className="fi fi-rs-route"></span>
+                                <span>برنامه سفر</span>
+                            </h3>
+                            <Suspense fallback={`loading ...`}>
+                                <JourneyCourse destinations={tour.destinations} tourId={tour.id} dateId={currentDate.id}/>
+                            </Suspense>
+                        </section>
                     </section>
                 </div>
             </main>

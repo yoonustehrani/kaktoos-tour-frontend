@@ -1,4 +1,5 @@
 import moment from 'moment-jalaali';
+import { TOUR_RESULT } from './utils/types';
 moment.loadPersian({ dialect: 'persian-modern' });
 // moment.locale('fa')
 
@@ -66,4 +67,8 @@ export function convertToJalali(date: string)
 export function getJalaliMomentOf(date: string)
 {
     return moment(date, 'YYYY-MM-DD');   
+}
+
+export function getTourHref(tour: TOUR_RESULT) {
+    return `/tours/${tour.id}/${tour.slug}`
 }

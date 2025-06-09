@@ -8,7 +8,7 @@ export interface BreadCrumbItem {
 export default function BreadCrumbs({links}: {links: BreadCrumbItem[]})
 {
     return (
-        <nav aria-label="Breadcrumb" className="w-full p-3 dark:bg-darkBlue-oxford">
+        <nav aria-label="Breadcrumb" className="w-full mx-6 p-3 dark:bg-darkBlue-oxford">
             <ol className="text-gray-600 dark:text-gray-200 flex items-center gap-3">
                 <li className="flex items-center gap-3">
                     <Link href="/" className="hover:underline py-1">

@@ -4,7 +4,7 @@ export default function Footer()
 {
     return (
         <footer className="dark:bg-darkBlue-oxford w-full">
-            <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+            <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-10 sm:px-6 lg:px-8 lg:pt-10">
                 <div className="flex flex-col md:flex-row gap-12">
                     <div>
                         <div className="flex justify-center sm:justify-start">
@@ -82,10 +82,10 @@ export default function Footer()
                     </div>
 
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
-                    <div className="text-center sm:text-right w-fit order-last">
+                    <div className="text-center sm:text-right w-full md:w-fit order-last">
                             <p className="text-lg font-medium dark:text-gray-300">ارتباط با ما</p>
 
-                            <ul className="mt-8 space-y-4 text-sm w-fit">
+                            <ul className="mt-3 md:mt-8 space-y-4 text-sm w-full flex flex-col justify-center items-center md:w-fit">
                                 <li>
                                     <a
                                         className="w-fit flex items-center justify-center gap-3 ltr:sm:justify-start rtl:sm:justify-end"

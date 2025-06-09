@@ -106,6 +106,7 @@ export type TOURS_COUNT_OBJECT = { tours_count: number }
 
 export type SEARCH_TOUR_ROUTE_SEARCH_PARAMS = {
     'countries[]'?: string[];
+    nights?: number
     page?: string;
 }
 
@@ -224,4 +225,13 @@ export interface TOUR_PAGE_RESULT extends TOUR {
         visa_preparation_days: number,
         order: number
     })[]
+}
+
+export type Category = {
+    id: number;
+    slug: string;
+    title: string;
+    classification_id: number;
+    image_src: string|null;
+    icon_class: string|null;
 }

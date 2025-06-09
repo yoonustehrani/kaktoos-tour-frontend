@@ -19,14 +19,15 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
         return items
     }
     
-    const tours = await unstable_cache(async () => {
-        return getTours({
-            countries: getSearchParamAsArray(searchParams, 'countries'),
-            origins: getSearchParamAsArray(searchParams, 'origins')?.map(x => Number(x)),
-            destinations: getSearchParamAsArray(searchParams, 'destinations')?.map(x => Number(x)),
-            nights: getSearchParamAsArray(searchParams, 'nights')?.map(x => Number(x)),
-        })
-    }, ['tours', JSON.stringify(searchParams)], { revalidate: 5, tags: ['tours'] })();
+    const tours = await getTours({
+        countries: getSearchParamAsArray(searchParams, 'countries'),
+        origins: getSearchParamAsArray(searchParams, 'origins')?.map(x => Number(x)),
+        destinations: getSearchParamAsArray(searchParams, 'destinations')?.map(x => Number(x)),
+        nights: searchParams?.nights,
+    })
+    // const tours = await unstable_cache(async () => {
+        
+    // }, ['tours', JSON.stringify(searchParams)], { revalidate: 5, tags: ['tours'] })();
 
     return (
         <div className="w-full flex flex-col items-center md:items-start md:flex-row gap-3">

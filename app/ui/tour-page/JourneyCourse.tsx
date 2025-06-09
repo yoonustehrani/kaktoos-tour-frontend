@@ -68,26 +68,26 @@ export default async function JourneyCourse({tourId, dateId, destinations}: Jour
                                     <img className="p-1 bg-antiFlashWhite/50 rounded-full" src={`${process.env.NEXT_PUBLIC_AH_SERVICE_URL}/${course.transportation_firm.logo}`} alt="airline logo" height={45} width={45}/>
                                     <span>{course.transportation_firm.name_fa || course.transportation_firm.name}</span>
                                 </div>
-                                <div className="flex flex-col items-center gap-2">
+                                <div className="flex flex-col items-center gap-3">
                                     <span className="font-semibold text-sm hidden">ECONOMY</span>
-                                    <div className="flex items-center gap-2 text-2xl">
+                                    <div className="flex items-center gap-2 text-3xl">
                                         <i className="fi fi-rs-luggage-cart h-6"></i>
-                                        <div className="text-xs flex flex-col items-center gap-1">
+                                        <div className="text-sm flex flex-col items-center gap-1">
                                             <span>بار مجاز</span>
                                             <span>{course.baggage}Kg</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-2xl">
+                                <div className="flex items-center gap-3 text-3xl">
                                     <i className="fi fi-rs-clock h-6"></i>
-                                    <div className="text-xs flex flex-col items-center gap-1">
+                                    <div className="text-sm flex flex-col items-center gap-1">
                                         <span>ساعت پرواز</span>
                                         <span>{course.departure_time}</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-2xl">
+                                <div className="flex items-center gap-3 text-3xl">
                                     <i className="fi fi-rs-duration h-6"></i>
-                                    <div className="text-xs flex flex-col items-center gap-1">
+                                    <div className="text-sm flex flex-col items-center gap-1">
                                         <span>مدت پرواز</span>
                                         <span>{course.duration}</span>
                                     </div>

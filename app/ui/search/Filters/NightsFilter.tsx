@@ -8,17 +8,17 @@ import { useRouter } from 'nextjs-toploader/app';
 export default function NightsFilter({items}: {items: TOUR_META_NIGHT[]})
 {
     const searchParams = useSearchParams();
-    const nights = searchParams.getAll(`nights[]`);
+    const nights = searchParams.get(`nights`);
     const pathname = usePathname();
     const { replace } = useRouter();
     const handleSearch = (id: number|string) => { 
         id = String(id)
         // console.log(`Searching... ${term}`);
         const params = new URLSearchParams(searchParams);
-        if (nights.includes(id)) {
-            params.delete(`nights[]`, id)
+        if (nights == id) {
+            params.delete(`nights`, id)
         } else {
-            params.append(`nights[]`, id)
+            params.set(`nights`, id)
         }
         // params.set('page', '1');
         // if (term) {
@@ -29,7 +29,7 @@ export default function NightsFilter({items}: {items: TOUR_META_NIGHT[]})
         replace(`${pathname}?${decodeURI(params.toString())}`)
     }
     function isChecked(id: number) {
-        return nights.includes(String(id))
+        return nights == String(id)
     }
     return (
         <FilterBox title="مدت اقامت">

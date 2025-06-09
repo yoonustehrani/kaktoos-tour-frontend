@@ -16,11 +16,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="fa" dir="rtl">
+		<html lang="fa" dir="rtl" className="w-screen overflow-x-hidden">
 			<body
-				className={`subpixel-antialiased`}
+				className={`subpixel-antialiased overflow-x-hidden w-full`}
 			>
-				<NextTopLoader color="#ffffff" />
+				<NextTopLoader color="#173F29" />
 				{children}
 				<Footer />
 			</body>
