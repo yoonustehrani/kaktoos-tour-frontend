@@ -84,18 +84,18 @@ export default function DestinationsField() {
                 <i className="fi fi-rs-route h-full pt-1"></i>
                 <span>{state.length > 0 ? 'افزودن مقصد' : 'انتخاب مقصد'}</span>
             </FieldButton>
-            <div className={`w-full max-w-xs bg-vanilla dark:bg-gray-800 p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
+            <div className={`w-full max-w-xs bg-vanilla p-3 flex flex-col gap-2 rounded-md rounded-tr-none`}>
                 {state.length === 0 && (
                     <p className="text-justify">با کلیک روی انتخاب مقصد می توانید مقاصد سفر خود را مشخص کنید.</p>
                 )}
                 {state.map(dest => (
-                    <div key={dest.id} className={`w-full bg-gray-200 dark:bg-gray-700 h-12 px-3 py-1 flex items-center gap-3 rounded-md`}>
+                    <div key={dest.id} className={`w-full bg-gray-200 h-12 px-3 py-1 flex items-center gap-3 rounded-md`}>
                         <Image className="rounded-full" src={`/flags/1x1/${dest?.country_code.toLowerCase()}.svg`} height={30} width={30} alt="Country Flag" />
                         <div className="flex flex-col gap-1 grow">
                             <h5 className="font-bold text-sm">{dest.name_fa}</h5>
                             <h6 className="text-xs">{dest.name}</h6>
                         </div>
-                        <button onClick={() => removeDesination(dest.id)} className="bg-gray-300 dark:text-white dark:bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
+                        <button onClick={() => removeDesination(dest.id)} className="bg-gray-300 size-5 flex items-center justify-center rounded-sm shadow-md">
                             <i className="block fi fi-rs-cross text-xs size-3"></i>
                         </button>
                     </div>
@@ -103,7 +103,7 @@ export default function DestinationsField() {
             </div>
             <Modal ref={modalRef}>
                 {/* border-gray-900/30 */}
-                <form method="dialog" className='w-full max-w-[24rem] bg-white dark:bg-darkBlue-oxford border-2 border-black/10 shadow-md dark:text-antiFlashWhite rounded-lg px-4 py-3 flex flex-col gap-4'>
+                <form method="dialog" className='w-full max-w-[24rem] bg-white border-2 border-black/10 shadow-md rounded-lg px-4 py-3 flex flex-col gap-4'>
                     <div className='flex items-center gap-2 text-xl w-full'>
                         <i className="fi fi-rs-route size-5"></i>
                         <h4>مقاصد موردنظر را انتخاب کنید.</h4>

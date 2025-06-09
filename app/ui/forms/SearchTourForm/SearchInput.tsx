@@ -25,7 +25,7 @@ export default function SearchInput({
                 dir='rtl'
                 type="text"
                 placeholder={placeHolder}
-                className='w-full pr-1 pl-8 py-2 text-right bg-transparent border-b-2 border-gray-300 dark:border-gray-700 focus:border-gray-700 dark:focus:border-darkBlue-delft'
+                className='w-full pr-1 pl-8 py-2 text-right bg-transparent border-b-2 border-gray-300 focus:border-gray-700'
             />
         </div>
     )

@@ -41,10 +41,10 @@ export default async function JourneyCourse({tourId, dateId, destinations}: Jour
                             <span><i className="ml-2 mr-1 fi fi-rs-marker"></i>{course.origin.name_fa}</span>
                         </div>
                         <div className="w-full order-last lg:order-none self-stretch flex flex-col lg:flex-row items-center">
-                            <div className={`p-2 -my-4 lg:-mx-3 flex items-center justify-center rounded-full z-20 border-black/10 bg-beige dark:bg-gray-900 ${course.transportation_type == 'A' ? 'border-t rotate-180 lg:border-t-0 lg:border-b lg:rotate-90' : 'border-b lg:border-b-0 lg:border-l'}`}>
-                                <i className="w-8 h-8 flex items-center justify-center rounded-full bg-vanilla dark:bg-sky-900 dark:shadow-md fi fi-rs-plane-alt"></i>
+                            <div className={`p-2 -my-4 lg:-mx-3 flex items-center justify-center rounded-full z-20 border-black/10 bg-beige ${course.transportation_type == 'A' ? 'border-t rotate-180 lg:border-t-0 lg:border-b lg:rotate-90' : 'border-b lg:border-b-0 lg:border-l'}`}>
+                                <i className="w-8 h-8 flex items-center justify-center rounded-full bg-vanilla fi fi-rs-plane-alt"></i>
                             </div>
-                            <div className="w-full h-fit pb-2 pt-6 px-3 lg:py-2 lg:px-6 bg-white border border-black/10 dark:bg-gray-800 shadow-md rounded-lg grid grid-cols-3 place-content-center place-items-center gap-y-4 lg:flex lg:flex-row items-center justify-between">
+                            <div className="w-full h-fit pb-2 pt-6 px-3 lg:py-2 lg:px-6 bg-white border border-black/10 shadow-md rounded-lg grid grid-cols-3 place-content-center place-items-center gap-y-4 lg:flex lg:flex-row items-center justify-between">
                                 <div className="flex items-center gap-3 text-xs">
                                     <span><i className="text-xl fi fi-rs-tower-control"></i></span>
                                     <div>
@@ -97,7 +97,7 @@ export default async function JourneyCourse({tourId, dateId, destinations}: Jour
                         <div className="flex flex-row gap-3 lg:items-center">
                             <span><i className="fi fi-rs-marker ml-2 mr-1"></i>{course.destination.name_fa}</span>
                             {tour_destination && (
-                                <span className="h-fit text-xs bg-dark-moss-green text-white dark:text-antiFlashWhite dark:bg-gray-800 px-2 py-1 rounded-full">
+                                <span className="h-fit text-xs bg-dark-moss-green text-white px-2 py-1 rounded-full">
                                     {farsiNumber(tour_destination.number_of_nights)} شب اقامت
                                 </span>
                             )}

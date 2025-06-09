@@ -14,7 +14,7 @@ function Button({
     onClick: ButtonClickHandler
 }) {
     return (
-        <button disabled={disabled} onClick={onClick} aria-label="calendar backward" className="disabled:text-gray-300 dark:disabled:text-gray-500 hover:text-gray-400 text-gray-800 dark:text-antiFlashWhite">
+        <button disabled={disabled} onClick={onClick} aria-label="calendar backward" className="disabled:text-gray-300 hover:text-gray-400 text-gray-800">
             <span className="text-xs">{text}</span>
             {children}
         </button>

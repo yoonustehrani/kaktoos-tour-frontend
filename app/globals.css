@@ -34,13 +34,12 @@ body {
 }
 
 body {
-	@apply font-vazir dark:text-antiFlashWhite;
+	@apply font-vazir;
 }
 
 
 nav ul a {
 	@apply duration-300 px-3 py-1 text-gray-500 hover:text-gray-900 relative; 
-	/** dark:text-antiFlashWhite dark:hover:text-lightBlue-celtic; **/
 }
 
 nav ul a.under {
@@ -126,7 +125,7 @@ dialog {
 		animation: fade-in 0.7s ease-out;
 	}
 	&::backdrop {
-		@apply bg-gray-600/90 dark:bg-black/50;
+		@apply bg-gray-600/90;
 	}
 }
 
@@ -139,29 +138,29 @@ input:hover, input:focus, input:active {
   font-family: Arial, Helvetica, sans-serif;
 } */
 .select-item {
-	@apply cursor-pointer opacity-90 dark:opacity-60 hover:opacity-100 hover:bg-gray-200 hover:dark:bg-gray-800 rounded-md pr-2 pl-4 py-2 flex items-center justify-between gap-4 duration-300;
+	@apply cursor-pointer opacity-90 hover:opacity-100 hover:bg-gray-200 rounded-md pr-2 pl-4 py-2 flex items-center justify-between gap-4 duration-300;
 	&.active {
-		@apply opacity-100 dark:bg-gray-800 text-antiFlashWhite bg-gray-800;
+		@apply opacity-100 text-antiFlashWhite bg-gray-800;
 	}
 	.input.active, &:hover .input {
-		@apply bg-emerald-500 ring-emerald-600 dark:bg-sky-500 dark:ring-sky-800;
+		@apply bg-emerald-500 ring-emerald-600;
 	}
 	.input.active {
 		@apply ring-offset-gray-800;
 	}
 	.input {
-		@apply duration-300 bg-white ring-gray-500  dark:ring-gray-100 dark:bg-darkBlue-oxford h-3 aspect-square rounded-full ring-2 dark:ring-offset-darkBlue-oxford ring-offset-4;
+		@apply duration-300 bg-white ring-gray-500  h-3 aspect-square rounded-full ring-2 ring-offset-4;
 	}
 	&.active .text-label {
 		@apply bg-gray-700;
 	}
 	.text-label {
-		@apply bg-gray-200 dark:bg-sky-800;
+		@apply bg-gray-200;
 	}
 }
 
 hr {
-	@apply dark:border-gray-600 w-full;
+	@apply w-full;
 }
 
 .form-input {

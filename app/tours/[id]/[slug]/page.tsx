@@ -48,7 +48,7 @@ export default async function Page({params, searchParams}: PageProps) {
             <header className="w-full px-8 py-2 bg-antiFlashWhite">
                 <Nav />
             </header>
-            <main className="dark:bg-gray-900 bg-white flex flex-wrap gap-x-8 gap-y-8 py-12 px-3 lg:px-8 w-full overflow-hidden">
+            <main className="bg-white flex flex-wrap gap-x-8 gap-y-8 py-12 px-3 lg:px-8 w-full overflow-hidden">
                 <BreadCrumbs links={links}/>
                 <div className="flex items-center gap-3 w-full">
                     <div className="flex items-center">
@@ -61,7 +61,7 @@ export default async function Page({params, searchParams}: PageProps) {
                     <h1 className="text-3xl font-bold">{tour.title} - {tour.number_of_nights} شب</h1>
                 </div>
                 <div className="w-full flex flex-col lg:flex-row gap-3">
-                    <aside className="overflow-hidden w-full lg:w-fit bg-white border dark:border-none border-black/10 dark:bg-gray-950/50 shadow-md rounded-md p-3 h-fit">
+                    <aside className="overflow-hidden w-full lg:w-fit bg-white border border-black/10 shadow-md rounded-md p-3 h-fit">
                         <DatesNav dates={tour.dates} currentDateId={currentDate.id}/>
                     </aside>
                     <section className="grow">

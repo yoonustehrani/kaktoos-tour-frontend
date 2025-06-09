@@ -60,7 +60,7 @@ export default function ContactForm() {
                 {hasErrors('text') && <ErrorList errors={getErrors('text')}/>}
             </div>
             <div className="col-span-full flex justify-center mt-6">
-                <button type="submit" disabled={isPending} className="bg-websiteOrange text-white dark:bg-darkBlue-marian-light px-3 py-2 rounded-full flex justify-between items-center gap-3"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
+                <button type="submit" disabled={isPending} className="bg-websiteOrange text-white px-3 py-2 rounded-full flex justify-between items-center gap-3"> {/** min-w-44 md:w-auto justify-between md:justify-start */}
                     <span className="font-bold">ارسال درخواست</span>
                     <span className="fi fi-rs-paper-plane w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
                 </button>

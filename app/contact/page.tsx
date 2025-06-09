@@ -10,7 +10,7 @@ export default function ContactPage()
             <header className="w-full px-8 py-2 bg-antiFlashWhite">
                 <Nav />
             </header>
-            <main className="dark:bg-gray-900 bg-white pt-4">
+            <main className="bg-white pt-4">
                 <BreadCrumbs links={[{href: '/contact', text: 'تماس با ما'}]}/>
                 <section className="w-full flex flex-col items-center">
                     <h1 className="text-gray-900 font-bold text-4xl">تماس با تیم <span className="text-[#61BC67]">کاکتوس</span></h1>

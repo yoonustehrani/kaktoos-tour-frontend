@@ -44,7 +44,7 @@ export default function TableHead()
                 {weekDays.map(day => (
                     <th key={day.index}>
                         <div className="w-full flex justify-center">
-                            <span className="text-base font-medium text-center text-gray-800 dark:text-antiFlashWhite">{day.short_name}</span>
+                            <span className="text-base font-medium text-center text-gray-800">{day.short_name}</span>
                         </div>
                     </th>
                 ))}

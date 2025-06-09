@@ -3,7 +3,7 @@ import Logo from "../nav/Logo";
 export default function Footer()
 {
     return (
-        <footer className="dark:bg-darkBlue-oxford w-full">
+        <footer className="w-full">
             <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-10 sm:px-6 lg:px-8 lg:pt-10">
                 <div className="flex flex-col md:flex-row gap-12">
                     <div>
@@ -83,7 +83,7 @@ export default function Footer()
 
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
                     <div className="text-center sm:text-right w-full md:w-fit order-last">
-                            <p className="text-lg font-medium dark:text-gray-300">ارتباط با ما</p>
+                            <p className="text-lg font-medium">ارتباط با ما</p>
 
                             <ul className="mt-3 md:mt-8 space-y-4 text-sm w-full flex flex-col justify-center items-center md:w-fit">
                                 <li>
@@ -93,7 +93,7 @@ export default function Footer()
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="size-5 shrink-0 dark:text-gray-300"
+                                            className="size-5 shrink-0"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -117,7 +117,7 @@ export default function Footer()
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="size-5 shrink-0 dark:text-gray-300"
+                                            className="size-5 shrink-0"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -139,7 +139,7 @@ export default function Footer()
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="size-5 shrink-0 dark:text-gray-300"
+                                        className="size-5 shrink-0"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
@@ -162,7 +162,7 @@ export default function Footer()
                             </ul>
                         </div>
                         <div className="text-center sm:text-right">
-                            <p className="text-lg font-medium dark:text-gray-300">درباره ما</p>
+                            <p className="text-lg font-medium">درباره ما</p>
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
@@ -190,7 +190,7 @@ export default function Footer()
                         </div>
 
                         <div className="text-center sm:text-right">
-                            <p className="text-lg font-medium dark:text-gray-300">خدمات ما</p>
+                            <p className="text-lg font-medium">خدمات ما</p>
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
@@ -202,7 +202,7 @@ export default function Footer()
                         </div>
 
                         <div className="text-center sm:text-right">
-                            <p className="text-lg font-medium dark:text-gray-300">پیوندهای اصلی</p>
+                            <p className="text-lg font-medium">پیوندهای اصلی</p>
 
                             <ul className="mt-8 space-y-4 text-sm">
                                 <li>
@@ -227,7 +227,7 @@ export default function Footer()
                             <span className="block sm:inline mx-3">تمامی حقوق نزد صاحب اثر محفوظ است.</span>
 
                             <a
-                                className="inline-block dark:text-gray-300 underlined transition hover:text-gray-300/75"
+                                className="inline-block underlined transition hover:text-gray-300/75"
                                 href="#"
                             >
                                 شرایط و ضوابط
@@ -236,7 +236,7 @@ export default function Footer()
                             <span>&middot;</span>
 
                             <a
-                                className="inline-block dark:text-gray-300 underlined transition hover:text-gray-300/75"
+                                className="inline-block underlined transition hover:text-gray-300/75"
                                 href="#"
                             >
                                 حریم خصوصی

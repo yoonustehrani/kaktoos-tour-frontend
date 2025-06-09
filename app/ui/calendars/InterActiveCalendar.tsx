@@ -50,15 +50,15 @@ export default function InterActiveCalendar({
     return (
         <div className="flex items-center justify-center pt-4 md:py-8 px-4 w-fit">
             <div className="max-w-sm md:max-w-md w-full">
-                <div className="md:p-8 p-5 dark:bg-gray-800 bg-white rounded-3xl shadow-md border border-black/10">
+                <div className="md:p-8 p-5 bg-white rounded-3xl shadow-md border border-black/10">
                     <div className="px-4 flex flex-row items-center justify-between">
-                        <div className="focus:outline-none text-base font-bold dark:text-antiFlashWhite text-gray-800 flex gap-2 items-center">
-                            <select onChange={(e) => setMonth(Number(e.target.value) + 1)} className="bg-gray-200 dark:bg-gray-900/50 rounded-md px-2 py-1" value={month - 1}>
+                        <div className="focus:outline-none text-base font-bold flex gap-2 items-center">
+                            <select onChange={(e) => setMonth(Number(e.target.value) + 1)} className="bg-gray-200 rounded-md px-2 py-1" value={month - 1}>
                                 {monthsList.map((m) => (
                                     <option key={m.id} value={m.id}>{m.name}</option>
                                 ))}
                             </select>
-                            <select onChange={(e) => setYear(Number(e.target.value))} className="bg-gray-200 dark:bg-gray-900/50 rounded-md px-2 py-1" value={year}>
+                            <select onChange={(e) => setYear(Number(e.target.value))} className="bg-gray-200 rounded-md px-2 py-1" value={year}>
                                 {[now.jYear(), now.jYear() + 1].map((y) => (
                                     <option key={y} value={y}>{farsiNumber(y)}</option>
                                 ))}
@@ -78,16 +78,16 @@ export default function InterActiveCalendar({
                         />
                     </div>
                     {/* <div className="w-full flex items-center my-3 px-3">
-                                <button onClick={() => {}} aria-label="calendar backward" className={`${isCurrentMonthCalendar ? 'opacity-0' : 'opacity-100'} text-gray-800 dark:text-antiFlashWhite bg-gray-200 dark:bg-gray-900 px-2 py-1 rounded-full`}>
+                                <button onClick={() => {}} aria-label="calendar backward" className={`${isCurrentMonthCalendar ? 'opacity-0' : 'opacity-100'} text-gray-800 bg-gray-200 px-2 py-1 rounded-full`}>
                                     <span>برو به امروز</span>
                                 </button>
                             </div> */}
                     {/* <div className="w-full mt-3 flex gap-2">
                         {selectedDate && (
-                            <button onClick={reset} className="text-gray-800 dark:text-antiFlashWhite bg-gray-200 dark:bg-gray-900 px-3 py-1 rounded-full">بازنشانی</button>
+                            <button onClick={reset} className="text-gray-800 bg-gray-200 px-3 py-1 rounded-full">بازنشانی</button>
                         )}
                         {endDate && (
-                            <button onClick={() => setEndDate(undefined)} className="text-gray-800 dark:text-antiFlashWhite bg-gray-200 dark:bg-gray-900 px-3 py-1 rounded-full">حذف تاریخ پایان</button>
+                            <button onClick={() => setEndDate(undefined)} className="text-gray-800 bg-gray-200 px-3 py-1 rounded-full">حذف تاریخ پایان</button>
                         )}
                     </div> */}
 
@@ -118,7 +118,7 @@ export default function InterActiveCalendar({
                         </table>
                     </div>
                     {/* <div className="w-full mt-3 flex justify-end gap-2">
-                        <button onClick={() =>} className="text-gray-800 dark:text-antiFlashWhite bg-gray-200 dark:bg-blue-900 px-3 py-1 rounded-full">ذخیره</button>
+                        <button onClick={() =>} className="text-gray-800 bg-gray-200 px-3 py-1 rounded-full">ذخیره</button>
                     </div> */}
                 </div>
             </div>

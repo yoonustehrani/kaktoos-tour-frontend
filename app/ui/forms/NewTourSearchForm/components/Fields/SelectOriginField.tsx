@@ -60,7 +60,7 @@ export default function SelectOriginField()
                         <span onClick={(e) => {
                             e.stopPropagation()
                             setState(undefined)
-                        }} className="bg-gray-300 dark:text-white dark:bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
+                        }} className="bg-gray-300 size-5 flex items-center justify-center rounded-sm shadow-md">
                             <i className="block fi fi-rs-cross text-xs size-3"></i>
                         </span>
                     </div>

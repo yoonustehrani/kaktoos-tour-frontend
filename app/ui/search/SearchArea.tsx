@@ -31,17 +31,17 @@ export default async function SearchArea(searchParams: SEARCH_TOUR_ROUTE_SEARCH_
 
     return (
         <div className="w-full flex flex-col items-center md:items-start md:flex-row gap-3">
-            <aside className="dark:bg-darkBlue-oxford bg-gray-100 border border-black/10 dark:border-none shadow-md rounded-lg w-96 p-5 hidden md:flex flex-col flex-none gap-6">
+            <aside className="bg-gray-100 border border-black/10 shadow-md rounded-lg w-96 p-5 hidden md:flex flex-col flex-none gap-6">
                 <FilterHead />
                 <hr />
                 <FilterBox title="بازه قیمتی">
                     <div className="flex flex-col gap-3 py-4">
-                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-200 dark:bg-gray-900 rounded-lg">
+                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-200 rounded-lg">
                             <label className="text-sm" htmlFor="">از:</label>
                             <PriceInput initialValue={tours.meta.price.min} className="w-full bg-transparent py-2 px-2" />
                             <span className="text-xs">تومان</span>
                         </div>
-                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-200 dark:bg-gray-900 rounded-lg">
+                        <div className="flex w-2/3 items-center gap-1 px-3 relative bg-gray-200 rounded-lg">
                             <label className="text-sm" htmlFor="">تا:</label>
                             <PriceInput initialValue={tours.meta.price.max} className="w-full bg-transparent py-2 px-2" />
                             <span className="text-xs">تومان</span>

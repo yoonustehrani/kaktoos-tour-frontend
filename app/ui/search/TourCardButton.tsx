@@ -10,7 +10,7 @@ export default function TourCardButton({
 })
 {
     return (
-        <div className="z-30 absolute moveable-button w-10 h-10 bg-gray-300 dark:bg-darkBlue-marian-dark rounded-b-md text-xl flex justify-center items-center">
+        <div className="z-30 absolute moveable-button w-10 h-10 bg-gray-300 rounded-b-md text-xl flex justify-center items-center">
             <span onClick={(e) => {
                 e.currentTarget.parentElement?.classList.toggle('active')
             }} className="fi fi-rs-calendar z-40 w-10 text-center h-auto absolute hover:cursor-pointer p-3"></span>

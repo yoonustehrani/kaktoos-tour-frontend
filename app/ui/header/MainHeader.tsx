@@ -16,18 +16,18 @@ export default function MainHeader()
              }}
             
             className="relative bg-contain bg-center flex flex-col-reverse md:flex-row justify-center items-top gap-12 md:gap-3 xl:gap-40 w-full md:px-3 xl:px-6 py-6 mb-4 mt-4">
-                <div className="w-full md:w-1/2 px-3 xl:px-6 flex flex-col justify-around gap-4 text-gray-800 dark:text-gray-300">
+                <div className="w-full md:w-1/2 px-3 xl:px-6 flex flex-col justify-around gap-4 text-gray-800">
                     <div className="w-fit">
                         <div className="flex items-center justify-center gap-3 md:gap-0 md:justify-between h-fit">
                             <Image className="h-14 md:h-28 w-auto" width={80} height={80} src={`/passport.svg`} alt=""/>
-                            <h1 className="text-4xl md:text-8xl text-center md:w-fit font-extrabold text-eerieBlack dark:text-antiFlashWhite relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
+                            <h1 className="text-4xl md:text-8xl text-center md:w-fit font-extrabold text-eerieBlack relative">کاکتوس&nbsp;<span aria-label="تور">تـــور</span></h1>
                         </div>
                         <h2 className="text-2xl md:text-4xl mt-6 text-center w-fit md:break-keep md:text-nowrap">کاکتوس، مجری تخصصی تورهای داخلی و خارجی</h2>
                     </div>
                     {/* <p className="text-lg text-justify">با سال‌ها تجربه در صنعت گردشگری، بهترین و متنوع‌ترین تورها را به مقاصد محبوب داخلی و خارجی ارائه می‌دهیم. تورهای کاکتوس با برنامه‌ریزی حرفه‌ای، <em className="underlined">خدمات باکیفیت و قیمت‌های رقابتی</em> <span aria-label="Money bag">💰</span>، سفری به‌یادماندنی را برای شما رقم می‌زند.</p> */}
                     {/* <p className="text-lg font-semibold text-right flex items-center gap-2"><span className="inline-block w-5 h-5 rounded-full bg-black"></span> برای اطلاع از آخرین تورها و تخفیف‌های ویژه، از گزینه های زیر استفاده کنید:</p> */}
                     {/* <div className="flex flex-col justify-end items-center sm:flex-row text-lg gap-4 mt-4">
-                        <Link href={'/tours'} className="bg-[#FE6700] text-white dark:bg-darkBlue-marian-light px-3 py-2 rounded-full flex items-center gap-2">
+                        <Link href={'/tours'} className="bg-[#FE6700] text-white px-3 py-2 rounded-full flex items-center gap-2">
                             <span className="fi fi-rs-search w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
                             <span>جستجوی تور</span>
                         </Link>

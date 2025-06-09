@@ -125,7 +125,7 @@ export default function StoriesSection()
                     }
                 }, 500);
             }}>
-                <div className='w-full relative max-w-[24rem] aspect-[9/16] bg-transparent overflow-hidden dark:bg-darkBlue-oxford border-2 border-black/10 shadow-md dark:text-antiFlashWhite rounded-3xl flex flex-col justify-between'>
+                <div className='w-full relative max-w-[24rem] aspect-[9/16] bg-transparent overflow-hidden border-2 border-black/10 shadow-md rounded-3xl flex flex-col justify-between'>
                     {activeStory && (
                         <>
                             <div className="py-1 px-3 absolute w-full">
@@ -133,7 +133,7 @@ export default function StoriesSection()
                             </div>
                             <img className="h-full w-full" src={`/images/stories/${activeStory.story}`}/>
                             <div className="h-16 absolute bottom-0 w-full bg-black/60 flex items-center justify-center gap-4">
-                                <Link href={'/tours'} className="bg-websiteOrange text-white dark:bg-darkBlue-marian-light pl-3 pr-1 py-1 rounded-full flex items-center gap-2">
+                                <Link href={'/tours'} className="bg-websiteOrange text-white pl-3 pr-1 py-1 rounded-full flex items-center gap-2">
                                     <span className="fi fi-rs-link w-8 h-8 bg-black/10 rounded-full shadow-inner shadow-black/20"></span>
                                     <span>صفحه تـــور</span>
                                 </Link>

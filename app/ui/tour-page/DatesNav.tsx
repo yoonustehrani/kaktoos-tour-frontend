@@ -11,7 +11,7 @@ const getFormattedDate = (date: string, format: string = 'jD jMMMM') => (
 const staticClassNames = 'rounded-md p-3 border-2 flex flex-col-reverse lg:flex-row gap-3 items-center justify-center text-sm lg:text-base'
 
 function Div(props: PropsWithChildren) {
-    return <div className={`${staticClassNames} text-black bg-websiteLightGreen border-websiteLightGreen dark:bg-transparent dark:text-blue-500 dark:border-darkBlue-marian-light`}>{props.children}</div>
+    return <div className={`${staticClassNames} text-black bg-websiteLightGreen border-websiteLightGreen`}>{props.children}</div>
 }
 
 interface DatePillProps {date: TOUR_DATE, is_current: boolean, is_cheapest: boolean, is_most_expensive: boolean}
@@ -21,7 +21,7 @@ function DatePill(
 ) {
     const Comp = is_current ? Div : Link;
     return (
-        <Comp href={`?date=${date.id}`} className={`${staticClassNames} text-gray-700 hover:text-white hover:bg-websiteLightGreen hover:border-websiteLightGreen dark:hover:bg-transparent dark:text-gray-400 dark:border-gray-500 hover:dark:border-darkBlue-marian-light`}>                 
+        <Comp href={`?date=${date.id}`} className={`${staticClassNames} text-gray-700 hover:text-white hover:bg-websiteLightGreen hover:border-websiteLightGreen`}>                 
             <div className="flex gap-3 items-center justify-center lg:justify-start w-full md:w-auto">
                 <div className="flex gap-2 items-center">
                     <span className="hidden md:fi h-7 fi-rs-hourglass-start"></span>
@@ -39,8 +39,8 @@ function DatePill(
                     </div>
                 </div>
             </div>
-            {is_cheapest && <span className="dark:text-green-600 dark:bg-gray-800 px-2 text-sm rounded-full">ارزان ترین</span>}
-            {is_most_expensive && <span className="dark:text-red-500 dark:bg-gray-800 px-2 text-sm rounded-full">گران ترین</span>}
+            {is_cheapest && <span className="px-2 text-sm rounded-full">ارزان ترین</span>}
+            {is_most_expensive && <span className=" px-2 text-sm rounded-full">گران ترین</span>}
         </Comp>
     )
 }

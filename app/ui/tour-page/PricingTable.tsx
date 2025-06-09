@@ -13,7 +13,7 @@ export default function PricingTable({
     const PricingRoomTypes = PricingRoomType().cases
     return (
         <table className="table-auto w-full text-center rounded-md overflow-hidden shadow-md">
-            <thead className="text-xs font-semibold bg-zinc-400 dark:bg-darkBlue-marian-dark">
+            <thead className="text-xs font-semibold bg-zinc-400">
                 <tr>
                     <th className="p-2">نوع اتاق</th>
                     {(Object.keys(pricings) as unknown as Array<keyof typeof PricingRoomTypes>).map((rt) => (
@@ -22,8 +22,8 @@ export default function PricingTable({
                 </tr>
             </thead>
             <tbody>
-                <tr className="bg-zinc-300 dark:bg-darkBlue-marian-light">
-                    <th className="p-2 text-sm bg-zinc-400 dark:bg-darkBlue-marian-dark">نرخ</th>
+                <tr className="bg-zinc-300">
+                    <th className="p-2 text-sm bg-zinc-400">نرخ</th>
                     {(Object.entries(pricings)).map(([key, prices]) => (
                         <td key={key} className="p-2">
                             <p className="flex justify-center flex-wrap gap-1">

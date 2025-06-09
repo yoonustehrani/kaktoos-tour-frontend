@@ -48,7 +48,7 @@ export default function OriginField() {
                 <i className="fi fi-rs-marker h-full pt-1"></i>
                 <span>{`انتخاب مبدا`}</span>
             </FieldButton>
-            <div className={`w-full max-w-xs bg-vanilla dark:bg-gray-800 p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
+            <div className={`w-full max-w-xs bg-vanilla p-3 flex items-center gap-3 rounded-md rounded-tr-none`}>
                 {!state && (
                     <p className="text-justify">روی انتخاب مبدا کلیک کنید تا شهر مبدا سفر خود را مشخص کنید.</p>
                 )}
@@ -59,14 +59,14 @@ export default function OriginField() {
                             <h5 className="font-bold text-base">{state.name_fa}</h5>
                             <h6 className="text-xs">{state.name}</h6>
                         </div>
-                        <button onClick={() => setState(undefined)} className="bg-gray-300 dark:text-white dark:bg-red-700 size-5 flex items-center justify-center rounded-sm shadow-md">
+                        <button onClick={() => setState(undefined)} className="bg-gray-300 size-5 flex items-center justify-center rounded-sm shadow-md">
                             <i className="block fi fi-rs-cross text-xs size-3"></i>
                         </button>
                     </>
                 )}
             </div>
             <Modal ref={modalRef}>
-                <form method="dialog" className='w-full max-w-[24rem] bg-white dark:bg-darkBlue-oxford border-2 border-black/10 shadow-md dark:text-antiFlashWhite rounded-lg px-4 py-3 flex flex-col gap-4'>
+                <form method="dialog" className='w-full max-w-[24rem] bg-white border-2 border-black/10 shadow-md rounded-lg px-4 py-3 flex flex-col gap-4'>
                     <div className='flex items-center gap-2 text-xl w-full'>
                         <i className="fi fi-rs-marker size-5"></i>
                         <h4>یک مبدا انتخاب کنید.</h4>
