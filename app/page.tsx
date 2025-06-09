@@ -8,8 +8,10 @@ import ToursOnCalendarSection from "./ui/sections/ToursOnCalendarSection";
 import StoriesSection from "./ui/sections/StoriesSection";
 import { Suspense } from "react";
 import CategoriesSection from "./ui/sections/CategoriesSection";
+import { SEARCH_TOUR_ROUTE_PROPS } from "./utils/types";
 
-export default function Home() {
+export default async function Page(props: SEARCH_TOUR_ROUTE_PROPS) {
+    let items = await props.searchParams;
     return (
         <>
             <MainHeader />

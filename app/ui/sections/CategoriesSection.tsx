@@ -1,8 +1,6 @@
 import { getCategories } from "@/app/lib/api";
 import { Category } from "@/app/utils/types";
-import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
 
 interface CategoriesProps {
 
@@ -26,7 +24,7 @@ function CategoryItem({id, slug, title, image_src}: Category) {
     )
 }
 
-const CategoriesSection: FC<CategoriesProps> = async () => {
+export default async function CategoriesSection() {
     const categories = await getCategories({
         classification_id: 1
     })
@@ -45,6 +43,4 @@ const CategoriesSection: FC<CategoriesProps> = async () => {
             </div>
         </section>
     );
-}
-
-export default CategoriesSection;
+};

@@ -1,6 +1,6 @@
 services:
   website:
-    image: yoonustehrani/kaktoos-tour-backend:latest
+    image: yoonustehrani/kaktoos-tour-frontend:latest
     networks:
       - kaktoos-tour-network
 
